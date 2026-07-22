@@ -64,6 +64,31 @@ export const viewport = {
   ],
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  alternateName: siteConfig.shortName,
+  url: siteConfig.url,
+  email: siteConfig.email,
+  jobTitle: siteConfig.title,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Batangas City",
+    addressCountry: "PH",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: siteConfig.university,
+  },
+  sameAs: [
+    "https://github.com/Laurence-rgb",
+    "https://www.linkedin.com/in/laurence-delacruz-74a55341a/",
+    "https://www.upwork.com/freelancers/~01908eaa4b245174f3",
+    "https://www.fiverr.com/laurencetoshiro",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -76,6 +101,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background font-sans text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <a
+          href="#main-content"
+          className="fixed left-4 top-4 z-[300] -translate-y-24 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform focus:translate-y-0"
+        >
+          Skip to content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -88,7 +123,9 @@ export default function RootLayout({
           <CursorGlow />
           <CommandPalette />
           <Navbar />
-          <div className="pt-28 sm:pt-32">{children}</div>
+          <div id="main-content" className="pt-28 sm:pt-32">
+            {children}
+          </div>
           <Footer />
           <BackToTop />
         </ThemeProvider>

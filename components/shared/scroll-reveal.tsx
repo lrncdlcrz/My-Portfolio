@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import { fadeUp } from "@/animations/variants";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -20,6 +21,12 @@ export function ScrollReveal({
   once = true,
   amount = 0.25,
 }: ScrollRevealProps) {
+  const reducedMotion = useReducedMotion();
+
+  if (reducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}

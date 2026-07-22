@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/shared/theme-provider";
+import { Background } from "@/components/shared/background";
+import { CursorGlow } from "@/components/shared/cursor-glow";
+import { LoadingScreen } from "@/components/shared/loading-screen";
+import { ScrollProgress } from "@/components/shared/scroll-progress";
+import { BackToTop } from "@/components/shared/back-to-top";
+import { CommandPalette } from "@/components/shared/command-palette";
+import { Navbar } from "@/components/navbar/navbar";
+import { Footer } from "@/components/footer/footer";
 import { siteConfig } from "@/constants/site";
 import "@/styles/globals.css";
 
@@ -74,7 +82,15 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <LoadingScreen />
+          <ScrollProgress />
+          <Background />
+          <CursorGlow />
+          <CommandPalette />
+          <Navbar />
+          <div className="pt-28 sm:pt-32">{children}</div>
+          <Footer />
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

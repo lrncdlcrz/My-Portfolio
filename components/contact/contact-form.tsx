@@ -3,7 +3,16 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
-import { Loader2, CheckCircle2, AlertCircle, Send } from "lucide-react";
+import {
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  Send,
+  User,
+  Mail,
+  Tag,
+  MessageSquare,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -15,10 +24,21 @@ const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-const fieldClass =
-  "peer placeholder:opacity-0";
-const labelClass =
-  "pointer-events-none absolute left-4 top-4 text-sm text-muted-foreground transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-muted-foreground peer-focus:-top-2.5 peer-focus:left-3 peer-focus:bg-background peer-focus:px-1 peer-focus:text-xs peer-focus:text-primary -top-2.5 left-3 bg-background px-1 text-xs";
+function FieldLabel({ htmlFor, icon: Icon, children }: {
+  htmlFor: string;
+  icon: typeof User;
+  children: React.ReactNode;
+}) {
+  return (
+    <label
+      htmlFor={htmlFor}
+      className="mb-2 flex items-center gap-1.5 text-xs font-medium uppercase tracking-widest text-muted-foreground"
+    >
+      <Icon className="h-3.5 w-3.5" />
+      {children}
+    </label>
+  );
+}
 
 export function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -92,54 +112,46 @@ export function ContactForm() {
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="glass-card space-y-5 p-8">
+    <form ref={formRef} onSubmit={handleSubmit} className="glass-card space-y-6 p-8">
       <div className="grid gap-5 sm:grid-cols-2">
-        <div className="relative">
-          <Input
-            id="from_name"
-            name="from_name"
-            placeholder=" "
-            required
-            className={fieldClass}
-          />
-          <label htmlFor="from_name" className={labelClass}>
+        <div>
+          <FieldLabel htmlFor="from_name" icon={User}>
             Your Name
-          </label>
+          </FieldLabel>
+          <Input id="from_name" name="from_name" placeholder="Jane Doe" required />
         </div>
-        <div className="relative">
+        <div>
+          <FieldLabel htmlFor="reply_to" icon={Mail}>
+            Your Email
+          </FieldLabel>
           <Input
             id="reply_to"
             name="reply_to"
             type="email"
-            placeholder=" "
+            placeholder="jane@email.com"
             required
-            className={fieldClass}
           />
-          <label htmlFor="reply_to" className={labelClass}>
-            Your Email
-          </label>
         </div>
       </div>
 
-      <div className="relative">
-        <Input id="subject" name="subject" placeholder=" " required className={fieldClass} />
-        <label htmlFor="subject" className={labelClass}>
+      <div>
+        <FieldLabel htmlFor="subject" icon={Tag}>
           Subject
-        </label>
+        </FieldLabel>
+        <Input id="subject" name="subject" placeholder="Let's work together" required />
       </div>
 
-      <div className="relative">
+      <div>
+        <FieldLabel htmlFor="message" icon={MessageSquare}>
+          Message
+        </FieldLabel>
         <Textarea
           id="message"
           name="message"
-          placeholder=" "
+          placeholder="Tell me a bit about your project..."
           required
           rows={5}
-          className={fieldClass}
         />
-        <label htmlFor="message" className={labelClass}>
-          Message
-        </label>
       </div>
 
       <AnimatePresence mode="wait">

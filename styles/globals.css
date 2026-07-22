@@ -73,10 +73,12 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;

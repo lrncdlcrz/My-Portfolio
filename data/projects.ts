@@ -50,27 +50,27 @@ export const projects: Project[] = [
     timeline: [
       {
         label: "Project Initiation",
-        period: "March – May",
+        period: "March-May",
         details: ["Requirements gathering", "Concept understanding", "Project planning"],
       },
       {
         label: "Research & Development",
-        period: "June – July",
+        period: "June-July",
         details: [
-          "Capstone Chapters 1–3",
+          "Capstone Chapters 1-3",
           "Frontend & backend development",
           "Data Flow Diagram",
         ],
       },
       {
         label: "Final Development & Implementation",
-        period: "August – Early November",
+        period: "August-Early November",
         details: ["Fully functional system", "System testing & evaluation", "Project planning"],
       },
       {
         label: "Documentation of Result",
-        period: "Mid – End of November",
-        details: ["Capstone Chapters 4–5", "System implementation"],
+        period: "Mid-End of November",
+        details: ["Capstone Chapters 4-5", "System implementation"],
       },
     ],
     timelineImage: "/projects/elder-care-link/timeline.png",

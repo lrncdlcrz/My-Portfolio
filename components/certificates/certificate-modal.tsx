@@ -1,7 +1,9 @@
 "use client";
 
+import { FileText } from "lucide-react";
 import { Certificate } from "@/types";
 import { FadeImage } from "@/components/shared/fade-image";
+import { Button } from "@/components/ui/button";
 import {
   DialogContent,
   DialogHeader,
@@ -26,6 +28,15 @@ export function CertificateModal({ certificate }: { certificate: Certificate }) 
         <DialogDescription>{certificate.issuer}</DialogDescription>
       </DialogHeader>
       <p className="text-center text-sm text-muted-foreground">{certificate.description}</p>
+      {certificate.certificatePdf && (
+        <div className="flex justify-center">
+          <Button asChild size="sm" variant="outline">
+            <a href={certificate.certificatePdf} target="_blank" rel="noopener noreferrer">
+              View Certificate <FileText className="h-3.5 w-3.5" />
+            </a>
+          </Button>
+        </div>
+      )}
     </DialogContent>
   );
 }

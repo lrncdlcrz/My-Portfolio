@@ -24,6 +24,7 @@ export const certificates: Certificate[] = [
     image: "/badges/aws-academy-cloud-foundations.png",
     description:
       "Completed AWS Academy's Cloud Foundations training badge covering core AWS infrastructure, services, and cloud economics.",
+    certificatePdf: "/certificates/aws-academy-cloud-foundations.pdf",
   },
   {
     id: "cloud-computing-fundamentals",
@@ -32,6 +33,7 @@ export const certificates: Certificate[] = [
     image: "/badges/cloud-computing-fundamentals.png",
     description:
       "Foundational badge covering cloud service models, deployment models, and core cloud computing concepts.",
+    certificatePdf: "/certificates/cloud-computing-fundamentals.pdf",
   },
   {
     id: "introduction-to-cybersecurity",
@@ -40,6 +42,7 @@ export const certificates: Certificate[] = [
     image: "/badges/introduction-to-cybersecurity.png",
     description:
       "Verified badge covering cybersecurity fundamentals — threats, vulnerabilities, and how organizations defend against them.",
+    certificatePdf: "/certificates/introduction-to-cybersecurity.pdf",
   },
   {
     id: "linux-unhatched",
@@ -48,5 +51,6 @@ export const certificates: Certificate[] = [
     image: "/badges/linux-unhatched.png",
     description:
       "Verified badge covering Linux fundamentals, the command line, and open-source operating system basics.",
+    certificatePdf: "/certificates/linux-unhatched.pdf",
   },
 ];

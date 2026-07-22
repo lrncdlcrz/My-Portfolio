@@ -27,6 +27,7 @@ export interface Certificate {
   image: string;
   description: string;
   verifyUrl?: string;
+  certificatePdf?: string;
   date?: string;
 }
 

@@ -56,7 +56,18 @@ export function ContactForm() {
 
     setStatus("submitting");
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
+      const data = new FormData(formRef.current);
+      const templateParams = {
+        name: data.get("name"),
+        email: data.get("email"),
+        title: data.get("title"),
+        message: data.get("message"),
+        time: new Date().toLocaleString(undefined, {
+          dateStyle: "medium",
+          timeStyle: "short",
+        }),
+      };
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, {
         publicKey: PUBLIC_KEY,
       });
       setStatus("success");
@@ -115,30 +126,24 @@ export function ContactForm() {
     <form ref={formRef} onSubmit={handleSubmit} className="glass-card space-y-6 p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <FieldLabel htmlFor="from_name" icon={User}>
+          <FieldLabel htmlFor="name" icon={User}>
             Your Name
           </FieldLabel>
-          <Input id="from_name" name="from_name" placeholder="Jane Doe" required />
+          <Input id="name" name="name" placeholder="Jane Doe" required />
         </div>
         <div>
-          <FieldLabel htmlFor="reply_to" icon={Mail}>
+          <FieldLabel htmlFor="email" icon={Mail}>
             Your Email
           </FieldLabel>
-          <Input
-            id="reply_to"
-            name="reply_to"
-            type="email"
-            placeholder="jane@email.com"
-            required
-          />
+          <Input id="email" name="email" type="email" placeholder="jane@email.com" required />
         </div>
       </div>
 
       <div>
-        <FieldLabel htmlFor="subject" icon={Tag}>
+        <FieldLabel htmlFor="title" icon={Tag}>
           Subject
         </FieldLabel>
-        <Input id="subject" name="subject" placeholder="Let's work together" required />
+        <Input id="title" name="title" placeholder="Let's work together" required />
       </div>
 
       <div>

@@ -34,7 +34,7 @@ export function ThemeToggle() {
           transition={{ duration: 0.25 }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          {isDark ? <Moon className="h-[18px] w-[18px]" /> : <Sun className="h-[18px] w-[18px]" />}
+          {isDark ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
         </motion.span>
       </AnimatePresence>
     </button>

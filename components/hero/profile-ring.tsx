@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { cn } from "@/lib/utils";
+import { FadeImage } from "@/components/shared/fade-image";
 
 export function ProfileRing() {
   const reducedMotion = useReducedMotion();
@@ -58,7 +58,7 @@ export function ProfileRing() {
 
         {/* Photo */}
         <div className="relative m-[4px] h-[calc(100%-8px)] w-[calc(100%-8px)] overflow-hidden rounded-full bg-background shadow-glow-lg">
-          <Image
+          <FadeImage
             src="/images/profile.png"
             alt="Laurence Andrei C. Dela Cruz"
             fill

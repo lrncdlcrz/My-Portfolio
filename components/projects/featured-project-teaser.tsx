@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { featuredProject } from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { FadeImage } from "@/components/shared/fade-image";
 import { blurReveal } from "@/animations/variants";
 
 export function FeaturedProjectTeaser() {
@@ -27,7 +27,7 @@ export function FeaturedProjectTeaser() {
           <div className="grid items-center gap-10 lg:grid-cols-[220px_1fr]">
             <div className="relative mx-auto h-40 w-40 shrink-0 overflow-hidden rounded-2xl bg-white/5 shadow-glow sm:h-48 sm:w-48">
               {featuredProject.logoImage && (
-                <Image
+                <FadeImage
                   src={featuredProject.logoImage}
                   alt={`${featuredProject.title} logo`}
                   fill
@@ -38,9 +38,9 @@ export function FeaturedProjectTeaser() {
             </div>
 
             <div>
-              <h3 className="font-heading text-2xl font-semibold sm:text-3xl">
+              <h2 className="font-heading text-2xl font-semibold sm:text-3xl">
                 {featuredProject.title}
-              </h3>
+              </h2>
               <p className="mt-2 text-muted-foreground">{featuredProject.tagline}</p>
 
               <div className="mt-5 flex flex-wrap gap-2">

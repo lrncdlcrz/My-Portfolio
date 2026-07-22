@@ -61,7 +61,7 @@ export function ContactInfo() {
                 whileTap={{ scale: 0.95 }}
                 className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
-                {Icon ? <Icon className="h-[18px] w-[18px]" /> : social.label[0]}
+                {Icon ? <Icon className="h-5 w-5" /> : social.label[0]}
               </motion.a>
             );
           })}

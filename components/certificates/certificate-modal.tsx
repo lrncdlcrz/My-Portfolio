@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { Certificate } from "@/types";
+import { FadeImage } from "@/components/shared/fade-image";
 import {
   DialogContent,
   DialogHeader,
@@ -13,7 +13,7 @@ export function CertificateModal({ certificate }: { certificate: Certificate }) 
   return (
     <DialogContent className="max-w-lg">
       <div className="relative mx-auto aspect-square w-48 overflow-hidden rounded-2xl bg-white/5">
-        <Image
+        <FadeImage
           src={certificate.image}
           alt={certificate.title}
           fill

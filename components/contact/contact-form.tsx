@@ -49,18 +49,44 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 12, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 24 }}
         className="glass-card flex flex-col items-center gap-3 p-10 text-center"
       >
-        <CheckCircle2 className="h-12 w-12 text-primary" />
-        <h3 className="font-heading text-xl font-semibold">Message sent!</h3>
-        <p className="text-muted-foreground">
+        <motion.span
+          initial={{ scale: 0, rotate: -45 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ delay: 0.15, type: "spring", stiffness: 300, damping: 15 }}
+          className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary shadow-glow"
+        >
+          <CheckCircle2 className="h-8 w-8" />
+        </motion.span>
+        <motion.h3
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
+          className="font-heading text-xl font-semibold"
+        >
+          Message sent!
+        </motion.h3>
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.38, duration: 0.4 }}
+          className="text-muted-foreground"
+        >
           Thanks for reaching out — I&apos;ll get back to you as soon as I can.
-        </p>
-        <Button variant="outline" onClick={() => setStatus("idle")} className="mt-2">
-          Send Another Message
-        </Button>
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.46, duration: 0.4 }}
+        >
+          <Button variant="outline" onClick={() => setStatus("idle")} className="mt-2">
+            Send Another Message
+          </Button>
+        </motion.div>
       </motion.div>
     );
   }

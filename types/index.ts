@@ -91,3 +91,26 @@ export interface StatItem {
   value: number;
   suffix?: string;
 }
+
+export type TechCategoryId =
+  | "languages"
+  | "frontend"
+  | "backend"
+  | "database"
+  | "api"
+  | "mobile"
+  | "cloud"
+  | "uiux"
+  | "vcs"
+  | "tools"
+  | "engineering"
+  | "security";
+
+export interface TechEntry {
+  id: string;
+  name: string;
+  description: string;
+  category: TechCategoryId;
+  iconKey: string;
+  projects?: string[];
+}

@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Download, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { QuickFacts } from "@/components/about/quick-facts";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { FadeImage } from "@/components/shared/fade-image";
 import { fadeRight, blurReveal } from "@/animations/variants";
 
 export function Story() {
@@ -14,7 +14,7 @@ export function Story() {
       <ScrollReveal variants={fadeRight} className="mx-auto w-full max-w-sm lg:sticky lg:top-32">
         <div className="glass-card relative overflow-hidden p-3">
           <div className="relative aspect-square overflow-hidden rounded-2xl">
-            <Image
+            <FadeImage
               src="/images/profile.png"
               alt="Laurence Andrei C. Dela Cruz"
               fill

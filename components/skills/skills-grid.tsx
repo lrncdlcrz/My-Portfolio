@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { skillCategories } from "@/data/skills";
 import { SkillCategoryCard } from "@/components/skills/skill-category-card";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
@@ -22,6 +24,17 @@ export function SkillsGrid() {
         {skillCategories.map((category) => (
           <SkillCategoryCard key={category.category} {...category} />
         ))}
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.1} className="mt-8 flex justify-center">
+        <Link
+          href="/tech-stack"
+          data-cursor-hover
+          className="group flex items-center gap-2 text-sm font-medium text-primary"
+        >
+          View the full interactive tech stack
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
       </ScrollReveal>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,11 +15,6 @@ export function Navbar() {
   const pathname = usePathname();
   const { direction, scrolled } = useScrollDirection();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [modifierKey, setModifierKey] = useState("Ctrl");
-
-  useEffect(() => {
-    if (/Mac|iPhone|iPad/.test(navigator.userAgent)) setModifierKey("⌘");
-  }, []);
 
   const isActive = (href: string) => {
     const base = href.split("#")[0];
@@ -80,15 +75,12 @@ export function Navbar() {
               type="button"
               data-cursor-hover
               onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
-              title={`Search this site (${modifierKey}+K)`}
+              title="Search this site"
               className="glass hidden h-11 items-center gap-2 rounded-full px-4 text-xs text-muted-foreground transition-colors hover:text-foreground sm:flex"
               aria-label="Search this site"
             >
               <Search className="h-3.5 w-3.5" />
               <span>Search</span>
-              <kbd className="rounded border border-white/15 bg-white/[0.06] px-1.5 py-0.5 font-sans text-[10px] text-muted-foreground">
-                {modifierKey}K
-              </kbd>
             </button>
             <ThemeToggle />
             <Button asChild size="sm" className="hidden md:inline-flex" magnetic>

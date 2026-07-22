@@ -54,6 +54,7 @@ export interface Project {
   title: string;
   tagline: string;
   featured: boolean;
+  category: "Web App" | "Game" | "Practice";
   status: "Coming Soon" | "In Progress" | "Completed";
   team?: string[];
   teamName?: string;

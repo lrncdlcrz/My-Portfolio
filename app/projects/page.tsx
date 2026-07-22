@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { ElderCareCaseStudy } from "@/components/projects/elder-care-case-study";
+import { ProjectsGrid } from "@/components/projects/projects-grid";
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -8,11 +11,19 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="section min-h-[70vh]">
-      <h1 className="font-heading text-4xl font-semibold">Projects</h1>
-      <p className="mt-4 max-w-2xl text-muted-foreground">
-        Elder-Care Link case study and full project gallery arrive in Phase 5.
-      </p>
+    <main>
+      <section className="section pb-0 text-center">
+        <ScrollReveal>
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+            Selected Work
+          </p>
+          <h1 className="mx-auto mt-3 max-w-2xl font-heading text-4xl font-semibold sm:text-5xl">
+            Projects built to solve real problems.
+          </h1>
+        </ScrollReveal>
+      </section>
+      <ElderCareCaseStudy />
+      <ProjectsGrid />
     </main>
   );
 }

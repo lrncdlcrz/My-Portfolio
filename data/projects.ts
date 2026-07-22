@@ -7,6 +7,7 @@ export const projects: Project[] = [
     title: "Elder-Care Link",
     tagline: "QR-Integrated Emergency SMS & Medical History System",
     featured: true,
+    category: "Web App",
     status: "In Progress",
     team: ["John Christopher Gabi", "Mark Fred Reyes", "Laurence Andrei Dela Cruz"],
     teamName: "Team Woodbury",
@@ -91,6 +92,7 @@ export const projects: Project[] = [
     title: "UB Universal Knowledge",
     tagline: "A space-themed adventure that turns university values into a game",
     featured: false,
+    category: "Game",
     status: "Completed",
     role: "Designed and developed the educational game experience.",
     problem:
@@ -135,6 +137,7 @@ export const projects: Project[] = [
     title: "React Fundamentals & Component UI",
     tagline: "A series of practice builds covering component-based UI",
     featured: false,
+    category: "Practice",
     status: "Completed",
     role: "Built independently to strengthen front-end fundamentals.",
     features: [
@@ -153,6 +156,7 @@ export const projects: Project[] = [
     title: "React Native Mobile UI Exercises",
     tagline: "Mobile UI exercises using React Native components and APIs",
     featured: false,
+    category: "Practice",
     status: "Completed",
     role: "Built independently to explore mobile application development.",
     features: [
@@ -171,6 +175,7 @@ export const projects: Project[] = [
     title: "Calculator App",
     tagline: "A foundational calculator built with HTML, CSS, and JavaScript",
     featured: false,
+    category: "Practice",
     status: "Completed",
     role: "Built independently to refine programming logic.",
     features: [
@@ -186,5 +191,4 @@ export const projects: Project[] = [
 ];
 
 export const featuredProject = projects.find((p) => p.featured)!;
-export const secondaryProjects = projects.filter((p) => !p.featured && p.id !== "ub-universal-knowledge");
-export const ubUniversalKnowledge = projects.find((p) => p.id === "ub-universal-knowledge")!;
+export const secondaryProjects = projects.filter((p) => !p.featured);

@@ -12,7 +12,13 @@ export function LoadingScreen() {
 
   useEffect(() => {
     const duration = reducedMotion ? 400 : 2000;
-    const timer = window.setTimeout(() => setLoading(false), duration);
+    const timer = window.setTimeout(() => {
+      setLoading(false);
+      if (window.location.hash) {
+        const target = document.getElementById(window.location.hash.slice(1));
+        target?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+      }
+    }, duration);
     return () => window.clearTimeout(timer);
   }, [reducedMotion]);
 

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { Story } from "@/components/about/story";
+import { Timeline } from "@/components/experience/timeline";
+import { SkillsGrid } from "@/components/skills/skills-grid";
 
 export const metadata: Metadata = {
   title: "About",
@@ -8,11 +11,10 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="section min-h-[70vh]">
-      <h1 className="font-heading text-4xl font-semibold">About</h1>
-      <p className="mt-4 max-w-2xl text-muted-foreground">
-        Full story and skills grid arrive in Phase 4.
-      </p>
+    <main>
+      <Story />
+      <Timeline />
+      <SkillsGrid />
     </main>
   );
 }

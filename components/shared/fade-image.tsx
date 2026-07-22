@@ -9,7 +9,7 @@ export function FadeImage({ className, onLoad, ...props }: ImageProps) {
   const imgRef = useRef<HTMLImageElement | null>(null);
 
   // Cached/instant images never fire onLoad because the browser considers
-  // them already complete before React attaches the listener — check
+  // them already complete before React attaches the listener, check
   // synchronously on mount so those don't get stuck blurred forever.
   useLayoutEffect(() => {
     if (imgRef.current?.complete) setLoaded(true);

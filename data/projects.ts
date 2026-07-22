@@ -13,9 +13,9 @@ export const projects: Project[] = [
     teamName: "Team Woodbury",
     role: "Co-developed the QR-integrated system, designed process flows and a Work Breakdown Structure across six modules, integrated the Twilio SMS API, and implemented the MySQL cloud database.",
     problem:
-      "For years, senior citizen data and emergency medical response in Batangas City have relied on manual paper logbooks and physical files. Even with the Senior Citizens Information Management System (SCIMS) centralizing basic registration, a real operational gap remains during field emergencies and medical consultations. Seniors often struggle to communicate a coherent medical history due to cognitive stress, speech difficulties, or language barriers — leaving health workers to piece together fragmented information, which risks the accuracy of the assessment. Paper-based records also put data privacy at risk: easily misplaced, destroyed, or accessed by unauthorized personnel.",
+      "For years, senior citizen data and emergency medical response in Batangas City have relied on manual paper logbooks and physical files. Even with the Senior Citizens Information Management System (SCIMS) centralizing basic registration, a real operational gap remains during field emergencies and medical consultations. Seniors often struggle to communicate a coherent medical history due to cognitive stress, speech difficulties, or language barriers, leaving health workers to piece together fragmented information, which risks the accuracy of the assessment. Paper-based records also put data privacy at risk: easily misplaced, destroyed, or accessed by unauthorized personnel.",
     solution:
-      "Elder-Care Link integrates a specialized QR code directly into the physical OSCA (Office for Senior Citizens Affairs) Senior IDs that seniors already carry — a \"passive technology\" approach that requires no app, login, or digital literacy from the senior. Scanning the ID grants health workers instant access to a centralized, encrypted digital medical profile (blood type, maintenance medications, and more) stored securely in MySQL, letting the ID act as the senior's \"voice\" during an emergency.",
+      "Elder-Care Link integrates a specialized QR code directly into the physical OSCA (Office for Senior Citizens Affairs) Senior IDs that seniors already carry: a \"passive technology\" approach that requires no app, login, or digital literacy from the senior. Scanning the ID grants health workers instant access to a centralized, encrypted digital medical profile (blood type, maintenance medications, and more) stored securely in MySQL, letting the ID act as the senior's \"voice\" during an emergency.",
     objectives: [
       "Develop an interactive digital profile platform for every senior citizen.",
       "Integrate a specialized QR code system on Senior IDs for instant access to medical history (blood type, maintenance medications).",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
       {
         title: "Automated Emergency SMS",
         description:
-          "Twilio SMS API automatically alerts family members and first responders with real-time GPS location the instant a QR code is scanned in an emergency — improving response times by roughly 30%.",
+          "Twilio SMS API automatically alerts family members and first responders with real-time GPS location the instant a QR code is scanned in an emergency, improving response times by roughly 30%.",
       },
       {
         title: "Secure Cloud Medical Records",
@@ -80,9 +80,9 @@ export const projects: Project[] = [
       quote:
         "Ang problema lang namin tuwing may appointment o emergency, kailangan pang manu-manong hanapin ang mga files sa dami ng mga papel. Nagreresulta ito sa mahabang paghihintay na nakakapagod para sa mga matatanda.",
       quoteTranslation:
-        "It bridges the gap between the patient and the doctor — in emergencies where the senior cannot speak, the QR code acts as their voice.",
+        "It bridges the gap between the patient and the doctor: in emergencies where the senior cannot speak, the QR code acts as their voice.",
       author: "Mr. Raymond Sandiwa",
-      role: "Representative, Information Technology II — OSCA",
+      role: "Representative, Information Technology II, OSCA",
     },
     links: {},
   },
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     problem:
       "University orientation modules on vision, mission, philosophy, objectives, and core values are often delivered as dense reading material students skim and forget.",
     solution:
-      "UB Universal Knowledge is an immersive educational game that transforms learning into an exciting cosmic adventure. Players test their knowledge by answering questions based on the University of Batangas' core values, with each correct answer earning \"fuel points\" that propel their spaceship to new planetary destinations. Each planet represents a different chapter of the UB curriculum — Vision, Mission, Philosophy, Objectives, and Core Values — offering a structured yet engaging way to explore the university's fundamental principles.",
+      "UB Universal Knowledge is an immersive educational game that transforms learning into an exciting cosmic adventure. Players test their knowledge by answering questions based on the University of Batangas' core values, with each correct answer earning \"fuel points\" that propel their spaceship to new planetary destinations. Each planet represents a different chapter of the UB curriculum (Vision, Mission, Philosophy, Objectives, and Core Values), offering a structured yet engaging way to explore the university's fundamental principles.",
     objectives: [
       "Enhance critical thinking by presenting real-world applications of UB's values.",
       "Reward correct answers with a fuel-point system that creates a satisfying sense of achievement.",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
       {
         title: "Planet-by-Planet Progression",
         description:
-          "Each planet maps to a chapter of the UB curriculum — Vision, Mission, Philosophy, Objectives, and Core Values.",
+          "Each planet maps to a chapter of the UB curriculum: Vision, Mission, Philosophy, Objectives, and Core Values.",
       },
       {
         title: "Fuel Point Reward Loop",

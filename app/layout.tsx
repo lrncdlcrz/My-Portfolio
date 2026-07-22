@@ -29,8 +29,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.shortName} — ${siteConfig.title}`,
-    template: `%s — ${siteConfig.shortName}`,
+    default: `${siteConfig.shortName} | ${siteConfig.title}`,
+    template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
   keywords: [...siteConfig.keywords],
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: `${siteConfig.shortName} — ${siteConfig.title}`,
+    title: `${siteConfig.shortName} | ${siteConfig.title}`,
     description: siteConfig.description,
     siteName: siteConfig.shortName,
     images: [{ url: "/images/profile.png", width: 1024, height: 1024, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.shortName} — ${siteConfig.title}`,
+    title: `${siteConfig.shortName} | ${siteConfig.title}`,
     description: siteConfig.description,
     images: ["/images/profile.png"],
   },

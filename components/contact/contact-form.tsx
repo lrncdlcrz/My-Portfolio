@@ -54,9 +54,19 @@ export function ContactForm() {
 
     if (!formRef.current) return;
 
+    const data = new FormData(formRef.current);
+
+    // Honeypot: a field real visitors never see or fill, but simple bots
+    // that auto-fill every input will. If it has a value, silently pretend
+    // to succeed instead of actually sending anything.
+    if (data.get("company")) {
+      setStatus("success");
+      formRef.current.reset();
+      return;
+    }
+
     setStatus("submitting");
     try {
-      const data = new FormData(formRef.current);
       const templateParams = {
         name: data.get("name"),
         email: data.get("email"),
@@ -107,7 +117,7 @@ export function ContactForm() {
           transition={{ delay: 0.38, duration: 0.4 }}
           className="text-muted-foreground"
         >
-          Thanks for reaching out — I&apos;ll get back to you as soon as I can.
+          Thanks for reaching out. I&apos;ll get back to you as soon as I can.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -124,6 +134,17 @@ export function ContactForm() {
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="glass-card space-y-6 p-8">
+      <div className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden" aria-hidden>
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <FieldLabel htmlFor="name" icon={User}>
@@ -168,7 +189,7 @@ export function ContactForm() {
             className="flex items-start gap-2 rounded-xl border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive"
           >
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-            The contact form isn&apos;t configured yet — please email me directly at{" "}
+            The contact form isn&apos;t configured yet. Please email me directly at{" "}
             <a href={`mailto:${siteConfig.email}`} className="underline">
               {siteConfig.email}
             </a>

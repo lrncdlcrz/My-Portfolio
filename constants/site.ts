@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Laurence Dela Cruz",
   title: "Aspiring Full Stack Developer",
   description:
-    "Aspiring Full Stack Developer and BS Information Technology student building modern, scalable web applications — from design to deployment. Based in Batangas City, Philippines, open for freelance, remote, and internship opportunities.",
+    "Aspiring Full Stack Developer and BS Information Technology student building modern, scalable web applications, from design to deployment. Based in Batangas City, Philippines, open for freelance, remote, and internship opportunities.",
   url: "https://laurencedelacruz.dev",
   email: "laurenceandrei24@gmail.com",
   phone: "+63 939-197-8056",

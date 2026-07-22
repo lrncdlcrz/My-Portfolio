@@ -18,7 +18,7 @@ export function ContactInfo() {
           Let&apos;s build something great together.
         </h2>
         <p className="mt-4 text-muted-foreground">
-          Whether it&apos;s a freelance project, an internship, or a full-time role —
+          Whether it&apos;s a freelance project, an internship, or a full-time role,
           I&apos;m open to hearing about it. I typically reply within a day or two.
         </p>
 

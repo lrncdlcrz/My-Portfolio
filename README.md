@@ -1,4 +1,4 @@
-# Laurence Dela Cruz — Portfolio
+# Laurence Dela Cruz Portfolio
 
 Personal portfolio for Laurence Andrei C. Dela Cruz, an aspiring Full Stack Developer
 and BSIT student at the University of Batangas. Built with Next.js 15, TypeScript,
@@ -52,7 +52,7 @@ data/           Real content: projects, certificates, skills, experience, stats
 styles/         Global Tailwind stylesheet and design tokens
 constants/      Site metadata, navigation, social links
 animations/     Framer Motion variants shared across components
-public/         Static assets — images, certificate badges, project screenshots, resume.pdf
+public/         Static assets: images, certificate badges, project screenshots, resume.pdf
 ```
 
 ## Deployment

@@ -40,20 +40,20 @@ export function Story() {
             I&apos;m Laurence Andrei C. Dela Cruz, a Bachelor of Science in Information
             Technology student at the University of Batangas, currently heading into my
             incoming 4th year this August. Over the past few years I&apos;ve moved from
-            learning the fundamentals to actually shipping working software — from
-            capstone systems to small practice builds — and that hands-on process is
+            learning the fundamentals to actually shipping working software, from
+            capstone systems to small practice builds, and that hands-on process is
             what keeps me hooked on this field.
           </p>
           <p>
             What draws me to development is solving real problems for real people. My
             capstone project, Elder-Care Link, came out of watching how much friction
-            senior citizens and health workers deal with in emergencies — that&apos;s the
+            senior citizens and health workers deal with in emergencies. That&apos;s the
             kind of problem I want to keep building for: practical, people-facing, and
             genuinely useful.
           </p>
           <p>
             I&apos;m actively exploring freelance work and enjoy the craft side of
-            building software as much as the engineering side — clean UI, thoughtful UX,
+            building software as much as the engineering side: clean UI, thoughtful UX,
             and interfaces that feel considered rather than templated. Outside of client
             and coursework, I spend time learning cloud computing, cybersecurity, and
             whatever&apos;s next in the web ecosystem.

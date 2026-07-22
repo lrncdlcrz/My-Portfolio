@@ -85,7 +85,7 @@ export function Background() {
         )}
       />
 
-      {/* Infinity-inspired rotating rings — abstract geometry, not imagery */}
+      {/* Infinity-inspired rotating rings, abstract geometry, not imagery */}
       <svg
         className="absolute left-1/2 top-1/2 h-[70vmin] w-[70vmin] -translate-x-1/2 -translate-y-1/2 opacity-[0.06] dark:opacity-[0.14]"
         viewBox="0 0 400 400"
@@ -121,7 +121,7 @@ export function Background() {
         </defs>
       </svg>
 
-      {/* Stars / particles — dark mode only */}
+      {/* Stars / particles, dark mode only */}
       <div className="absolute inset-0 hidden dark:block">
         {stars.map((star) => (
           <span

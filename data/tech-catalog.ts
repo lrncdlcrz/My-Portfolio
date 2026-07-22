@@ -40,7 +40,7 @@ export const techCatalog: TechEntry[] = [
   { id: "be-python", name: "Python", description: "Backend scripting used on Elder-Care Link.", category: "backend", iconKey: "python" },
   { id: "be-restapi", name: "REST API Development", description: "Designing and consuming RESTful endpoints.", category: "backend", iconKey: "restApi" },
   { id: "be-jwt", name: "JWT Authentication", description: "Token-based authentication for secure sessions.", category: "backend", iconKey: "jwt" },
-  { id: "be-crud", name: "CRUD Operations", description: "Create, read, update, delete — the backbone of any app.", category: "backend", iconKey: "crud" },
+  { id: "be-crud", name: "CRUD Operations", description: "Create, read, update, delete: the backbone of any app.", category: "backend", iconKey: "crud" },
 
   // Database
   { id: "db-mysql", name: "MySQL", description: "Relational database behind Elder-Care Link's records.", category: "database", iconKey: "mysql" },

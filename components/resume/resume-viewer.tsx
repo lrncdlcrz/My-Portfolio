@@ -19,7 +19,7 @@ export function ResumeViewer() {
         <div>
           <p className="font-heading text-lg font-semibold">resume.pdf</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Full resume — experience, skills, certifications, and projects.
+            Full resume: experience, skills, certifications, and projects.
           </p>
         </div>
 

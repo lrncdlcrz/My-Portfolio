@@ -19,7 +19,7 @@ export const certificates: Certificate[] = [
   },
   {
     id: "aws-academy-cloud-foundations",
-    title: "AWS Academy Graduate — Cloud Foundations",
+    title: "AWS Academy Graduate - Cloud Foundations",
     issuer: "AWS Academy",
     image: "/badges/aws-academy-cloud-foundations.png",
     description:
@@ -41,7 +41,7 @@ export const certificates: Certificate[] = [
     issuer: "Cisco Networking Academy",
     image: "/badges/introduction-to-cybersecurity.png",
     description:
-      "Verified badge covering cybersecurity fundamentals — threats, vulnerabilities, and how organizations defend against them.",
+      "Verified badge covering cybersecurity fundamentals: threats, vulnerabilities, and how organizations defend against them.",
     certificatePdf: "/certificates/introduction-to-cybersecurity.pdf",
   },
   {

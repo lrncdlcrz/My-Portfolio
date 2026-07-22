@@ -10,7 +10,7 @@ import { staggerContainer } from "@/animations/variants";
 export const metadata: Metadata = {
   title: "Tech Stack",
   description:
-    "An interactive breakdown of every technology, language, and tool Laurence Andrei C. Dela Cruz actually uses — from frontend and backend to cloud, cybersecurity, and software engineering practice.",
+    "An interactive breakdown of every technology, language, and tool Laurence Andrei C. Dela Cruz actually uses, from frontend and backend to cloud, cybersecurity, and software engineering practice.",
 };
 
 export default function TechStackPage() {
@@ -25,7 +25,7 @@ export default function TechStackPage() {
             Tech Stack
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Every language, framework, and tool I actually use — searchable, filterable, and
+            Every language, framework, and tool I actually use: searchable, filterable, and
             tied back to the real projects they were used on.
           </p>
         </ScrollReveal>

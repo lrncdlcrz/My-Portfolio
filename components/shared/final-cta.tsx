@@ -19,7 +19,7 @@ export function FinalCTA() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Available for freelance projects, remote collaboration, and internship
-            opportunities — from a single feature to a full application.
+            opportunities, from a single feature to a full application.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Button asChild size="lg">

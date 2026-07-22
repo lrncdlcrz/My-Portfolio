@@ -130,7 +130,7 @@ export function ElderCareCaseStudy() {
         </ScrollReveal>
       </div>
 
-      {/* Tech stack — real logos, tied to the shared tech catalog */}
+      {/* Tech stack, real logos tied to the shared tech catalog */}
       <div className="mt-20">
         <ScrollReveal>
           <SectionEyebrow number="05" label="Technology Stack" />

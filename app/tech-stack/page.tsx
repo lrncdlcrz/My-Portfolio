@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Tech Stack",
   description:
     "An interactive breakdown of every technology, language, and tool Laurence Andrei C. Dela Cruz actually uses, from frontend and backend to cloud, cybersecurity, and software engineering practice.",
+  alternates: {
+    canonical: "/tech-stack",
+  },
 };
 
 export default function TechStackPage() {

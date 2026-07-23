@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Certificates",
   description:
     "AWS, IBM, and Cisco certifications earned across cloud computing, cybersecurity, and Linux fundamentals.",
+  alternates: {
+    canonical: "/certificates",
+  },
 };
 
 export default function CertificatesPage() {

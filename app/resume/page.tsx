@@ -6,6 +6,9 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal";
 export const metadata: Metadata = {
   title: "Resume",
   description: "View and download Laurence Andrei C. Dela Cruz's resume.",
+  alternates: {
+    canonical: "/resume",
+  },
 };
 
 export default function ResumePage() {

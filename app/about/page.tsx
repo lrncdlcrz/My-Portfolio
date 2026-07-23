@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "BS Information Technology student at the University of Batangas, building modern web applications and exploring cloud computing and cybersecurity.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

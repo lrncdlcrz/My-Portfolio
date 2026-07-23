@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Projects",
   description:
     "Featured work including Elder-Care Link, a QR-integrated emergency SMS and medical history system, and UB Universal Knowledge.",
+  alternates: {
+    canonical: "/projects",
+  },
 };
 
 export default function ProjectsPage() {

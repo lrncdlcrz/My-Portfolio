@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { navLinks, siteConfig, socialLinks } from "@/constants/site";
 import { socialIconMap } from "@/lib/social-icons";
+import { cn } from "@/lib/utils";
 
 export function Footer() {
   return (
@@ -24,6 +25,13 @@ export function Footer() {
               className="flex items-center gap-2 transition-colors hover:text-foreground"
             >
               <Mail className="h-4 w-4" /> {siteConfig.email}
+            </a>
+            <a
+              href={`tel:${siteConfig.phone.replace(/[\s-]/g, "")}`}
+              data-cursor-hover
+              className="flex items-center gap-2 transition-colors hover:text-foreground"
+            >
+              <Phone className="h-4 w-4" /> {siteConfig.phone}
             </a>
             <span className="flex items-center gap-2">
               <MapPin className="h-4 w-4" /> {siteConfig.location}
@@ -56,7 +64,8 @@ export function Footer() {
           </h3>
           <ul className="mt-4 flex flex-wrap gap-3">
             {socialLinks.map((social) => {
-              const Icon = socialIconMap[social.icon];
+              const entry = socialIconMap[social.icon];
+              const isMonochrome = entry?.color === "currentColor";
               return (
                 <li key={social.href}>
                   <motion.a
@@ -64,12 +73,20 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
+                    title={social.label}
                     data-cursor-hover
                     whileHover={{ y: -3, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                    className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-white/30"
                   >
-                    {Icon ? <Icon className="h-5 w-5" /> : social.label[0]}
+                    {entry ? (
+                      <entry.Icon
+                        className={cn("h-5 w-5", isMonochrome && "text-foreground")}
+                        style={isMonochrome ? undefined : { color: entry.color }}
+                      />
+                    ) : (
+                      social.label[0]
+                    )}
                   </motion.a>
                 </li>
               );

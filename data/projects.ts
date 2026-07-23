@@ -9,7 +9,7 @@ export const projects: Project[] = [
     featured: true,
     category: "Web App",
     status: "In Progress",
-    team: ["John Christopher Gabi", "Mark Fred Reyes", "Laurence Andrei Dela Cruz"],
+    team: ["Laurence Andrei Dela Cruz", "Mark Fred Reyes"],
     teamName: "Team Woodbury",
     role: "Co-developed the QR-integrated system, designed process flows and a Work Breakdown Structure across six modules, integrated the Twilio SMS API, and implemented the MySQL cloud database.",
     problem:

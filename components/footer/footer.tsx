@@ -4,8 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { navLinks, siteConfig, socialLinks } from "@/constants/site";
-import { socialIconMap } from "@/lib/social-icons";
-import { cn } from "@/lib/utils";
+import { SocialIcon } from "@/components/shared/social-icon";
 
 export function Footer() {
   return (
@@ -63,34 +62,23 @@ export function Footer() {
             Elsewhere
           </h3>
           <ul className="mt-4 flex flex-wrap gap-3">
-            {socialLinks.map((social) => {
-              const entry = socialIconMap[social.icon];
-              const isMonochrome = entry?.color === "currentColor";
-              return (
-                <li key={social.href}>
-                  <motion.a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    title={social.label}
-                    data-cursor-hover
-                    whileHover={{ y: -3, scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-white/30"
-                  >
-                    {entry ? (
-                      <entry.Icon
-                        className={cn("h-5 w-5", isMonochrome && "text-foreground")}
-                        style={isMonochrome ? undefined : { color: entry.color }}
-                      />
-                    ) : (
-                      social.label[0]
-                    )}
-                  </motion.a>
-                </li>
-              );
-            })}
+            {socialLinks.map((social) => (
+              <li key={social.href}>
+                <motion.a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  title={social.label}
+                  data-cursor-hover
+                  whileHover={{ y: -3, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-white/30"
+                >
+                  <SocialIcon iconKey={social.icon} className="h-5 w-5" />
+                </motion.a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

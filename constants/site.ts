@@ -37,7 +37,12 @@ export const navLinks = [
 
 export const socialLinks = [
   {
-    label: "GitHub",
+    label: "GitHub (Main)",
+    href: "https://github.com/Laurence-Dev11",
+    icon: "github",
+  },
+  {
+    label: "GitHub (Alt)",
     href: "https://github.com/Laurence-rgb",
     icon: "github",
   },

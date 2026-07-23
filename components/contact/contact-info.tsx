@@ -3,10 +3,9 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig, socialLinks } from "@/constants/site";
-import { socialIconMap } from "@/lib/social-icons";
+import { SocialIcon } from "@/components/shared/social-icon";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { fadeRight } from "@/animations/variants";
-import { cn } from "@/lib/utils";
 
 export function ContactInfo() {
   return (
@@ -58,33 +57,22 @@ export function ContactInfo() {
           Find me elsewhere
         </p>
         <div className="flex flex-wrap gap-3">
-          {socialLinks.map((social) => {
-            const entry = socialIconMap[social.icon];
-            const isMonochrome = entry?.color === "currentColor";
-            return (
-              <motion.a
-                key={social.href}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                title={social.label}
-                data-cursor-hover
-                whileHover={{ y: -3, scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-white/30"
-              >
-                {entry ? (
-                  <entry.Icon
-                    className={cn("h-5 w-5", isMonochrome && "text-foreground")}
-                    style={isMonochrome ? undefined : { color: entry.color }}
-                  />
-                ) : (
-                  social.label[0]
-                )}
-              </motion.a>
-            );
-          })}
+          {socialLinks.map((social) => (
+            <motion.a
+              key={social.href}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              title={social.label}
+              data-cursor-hover
+              whileHover={{ y: -3, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-white/30"
+            >
+              <SocialIcon iconKey={social.icon} className="h-5 w-5" />
+            </motion.a>
+          ))}
         </div>
       </div>
     </ScrollReveal>

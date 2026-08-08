@@ -15,7 +15,7 @@ export default function ResumePage() {
   return (
     <main className="section">
       <ScrollReveal className="text-center">
-        <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+        <p className="eyebrow">
           Curriculum Vitae
         </p>
         <h1 className="mx-auto mt-3 max-w-2xl font-heading text-4xl font-semibold sm:text-5xl">

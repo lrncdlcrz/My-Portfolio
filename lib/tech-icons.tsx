@@ -30,6 +30,11 @@ import {
   SiPhpmyadmin,
   SiEclipseide,
   SiLinux,
+  SiVite,
+  SiThreedotjs,
+  SiGreensock,
+  SiWebgl,
+  SiNumpy,
 } from "react-icons/si";
 import { DiCss3, DiAws } from "react-icons/di";
 import {
@@ -55,6 +60,10 @@ import {
   ShieldAlert,
   GitBranch,
   Boxes,
+  MoveVertical,
+  Image as ImageIcon,
+  Film,
+  Palette,
   type LucideIcon,
 } from "lucide-react";
 
@@ -104,6 +113,18 @@ export const iconRegistry: Record<string, IconEntry> = {
   eclipse: { kind: "brand", Icon: SiEclipseide, color: "#2C2255" },
   linux: { kind: "brand", Icon: SiLinux, color: "currentColor" },
   aws: { kind: "brand", Icon: DiAws, color: "#FF9900" },
+
+  // Tooling used on the Kepler and Eclaire practice builds.
+  vite: { kind: "brand", Icon: SiVite, color: "#646CFF" },
+  threejs: { kind: "brand", Icon: SiThreedotjs, color: "currentColor" },
+  r3f: { kind: "brand", Icon: SiThreedotjs, color: "#61DAFB" },
+  gsap: { kind: "brand", Icon: SiGreensock, color: "#88CE02" },
+  glsl: { kind: "brand", Icon: SiWebgl, color: "#990000" },
+  numpy: { kind: "brand", Icon: SiNumpy, color: "#013243" },
+  lenis: { kind: "concept", Icon: MoveVertical, color: "#94A3B8" },
+  pillow: { kind: "concept", Icon: ImageIcon, color: "#94A3B8" },
+  ffmpeg: { kind: "concept", Icon: Film, color: "#94A3B8" },
+  cssModern: { kind: "concept", Icon: Palette, color: "#94A3B8" },
 
   restApi: { kind: "concept", Icon: Webhook, color: "#38BDF8" },
   qrCode: { kind: "concept", Icon: QrCode, color: "#A855F7" },

@@ -10,8 +10,8 @@ export function FinalCTA() {
   return (
     <section className="section">
       <ScrollReveal variants={scaleIn}>
-        <div className="border-gradient relative overflow-hidden rounded-3xl bg-white/[0.03] px-8 py-16 text-center sm:px-16">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+        <div className="border-gradient relative overflow-hidden rounded-3xl bg-foreground/[0.03] px-8 py-16 text-center sm:px-16">
+          <p className="eyebrow">
             Open for Work
           </p>
           <h2 className="mx-auto mt-4 max-w-2xl font-heading text-3xl font-semibold sm:text-4xl">

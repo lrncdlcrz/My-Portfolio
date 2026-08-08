@@ -7,16 +7,22 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/60 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
+        // Primary: white fill / black text, inverting to black fill + 1px white
+        // border on hover.
         default:
-          "bg-aurora-gradient text-white shadow-glow hover:shadow-glow-lg",
+          "border border-transparent bg-primary text-primary-foreground hover:border-foreground hover:bg-background hover:text-foreground",
+        // Secondary: transparent with a paper-600 hairline, brightening to
+        // paper-200 on hover.
         outline:
-          "glass text-foreground hover:border-primary/50 hover:bg-white/[0.08]",
-        ghost: "text-foreground hover:bg-white/[0.06]",
-        link: "text-primary underline-offset-4 hover:underline",
+          "border border-foreground/40 bg-transparent text-foreground hover:border-foreground/70 hover:bg-foreground/[0.06]",
+        // Tertiary: still a pill, just a quieter one than `outline`.
+        ghost:
+          "border border-border bg-transparent text-foreground hover:border-foreground/40 hover:bg-foreground/[0.06]",
+        link: "text-foreground underline-offset-4 hover:underline",
       },
       size: {
         default: "h-12 px-7",
@@ -114,7 +120,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {ripples.map((ripple) => (
           <span
             key={ripple.id}
-            className="pointer-events-none absolute h-2 w-2 animate-ping rounded-full bg-white/50"
+            className="pointer-events-none absolute h-2 w-2 animate-ping rounded-full bg-current opacity-40"
             style={{ left: ripple.x - 4, top: ripple.y - 4 }}
           />
         ))}

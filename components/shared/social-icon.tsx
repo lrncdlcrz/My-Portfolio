@@ -6,10 +6,17 @@ export function SocialIcon({ iconKey, className }: { iconKey: string; className?
   const entry = socialIconMap[iconKey];
   if (!entry) return null;
 
+  // Brand marks render grayscale by default and regain their color on hover or
+  // keyboard focus of the surrounding group. See styles/globals.css.
   if (entry.kind === "image") {
     return (
-      <span className={cn("relative block overflow-hidden rounded-full bg-white p-1", className)}>
-        <Image src={entry.src} alt="" fill className="object-contain p-1" />
+      <span
+        className={cn(
+          "logo-desaturate relative block overflow-hidden rounded-full bg-white p-1",
+          className,
+        )}
+      >
+        <Image src={entry.src} alt="" fill sizes="40px" className="object-contain p-1" />
       </span>
     );
   }
@@ -17,7 +24,7 @@ export function SocialIcon({ iconKey, className }: { iconKey: string; className?
   const isMonochrome = entry.color === "currentColor";
   return (
     <entry.Icon
-      className={cn(className, isMonochrome && "text-foreground")}
+      className={cn(className, "logo-desaturate", isMonochrome && "text-foreground")}
       style={isMonochrome ? undefined : { color: entry.color }}
     />
   );

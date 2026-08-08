@@ -25,7 +25,7 @@ export function QuickFacts() {
           variants={scaleIn}
           className="glass-card flex items-center gap-4 p-5"
         >
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-aurora-gradient text-white shadow-glow">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-mono-gradient text-background shadow-glow">
             <fact.icon className="h-5 w-5" />
           </span>
           <div>

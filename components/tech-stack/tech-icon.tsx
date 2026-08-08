@@ -5,11 +5,15 @@ export function TechIcon({ iconKey, className }: { iconKey: string; className?: 
   const entry = iconRegistry[iconKey];
   if (!entry) return null;
 
+  // Brand colors stay in the registry, but every logo renders grayscale so the
+  // site reads as intentionally monochrome. The `logo-desaturate` filter lifts
+  // on hover/focus of the surrounding group, so the real brand marks are still
+  // discoverable. See styles/globals.css.
   if (entry.kind === "badge") {
     return (
       <span
         className={cn(
-          "flex items-center justify-center rounded-lg text-[10px] font-bold tracking-tight text-white",
+          "logo-desaturate flex items-center justify-center rounded-lg text-[10px] font-bold tracking-tight text-white",
           className,
         )}
         style={{ backgroundColor: entry.color }}
@@ -26,7 +30,7 @@ export function TechIcon({ iconKey, className }: { iconKey: string; className?: 
 
   return (
     <Icon
-      className={cn(className, isMonochrome && "text-foreground")}
+      className={cn(className, "logo-desaturate", isMonochrome && "text-foreground")}
       style={isMonochrome ? undefined : { color: entry.color }}
     />
   );

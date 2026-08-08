@@ -10,7 +10,7 @@ export function BuiltWith() {
   return (
     <div>
       <ScrollReveal className="text-center">
-        <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+        <p className="eyebrow">
           Under The Hood
         </p>
         <h2 className="mx-auto mt-3 max-w-xl font-heading text-3xl font-semibold sm:text-4xl">

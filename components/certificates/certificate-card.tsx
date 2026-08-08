@@ -18,7 +18,7 @@ export function CertificateCard({ certificate }: { certificate: Certificate }) {
           data-cursor-hover
           className="glass-card group flex flex-col overflow-hidden text-left transition-shadow hover:shadow-glow"
         >
-          <div className="relative aspect-square w-full overflow-hidden bg-white/5">
+          <div className="project-media relative aspect-square w-full overflow-hidden bg-foreground/5">
             <FadeImage
               src={certificate.image}
               alt={certificate.title}

@@ -55,14 +55,18 @@ const config: Config = {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
-        aurora: {
-          blue: "#2563EB",
-          "blue-light": "#3B82F6",
-          indigo: "#6366F1",
-          violet: "#8B5CF6",
-          purple: "#A855F7",
-          navy: "#0F172A",
-          void: "#020617",
+        ink: {
+          950: "#050505",
+          900: "#0F0F0F",
+          800: "#171717",
+          700: "#262626",
+          600: "#404040",
+        },
+        paper: {
+          50: "#FAFAFA",
+          200: "#D4D4D4",
+          400: "#A3A3A3",
+          600: "#6E6E6E",
         },
       },
       borderRadius: {
@@ -71,18 +75,17 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        "aurora-gradient":
-          "linear-gradient(135deg, #2563EB 0%, #6366F1 45%, #8B5CF6 75%, #A855F7 100%)",
+        // Defined as a CSS variable in globals.css so it inverts with the theme.
+        "mono-gradient": "var(--mono-gradient)",
         "radial-glow":
           "radial-gradient(circle at center, var(--tw-gradient-from) 0%, transparent 70%)",
         "grid-pattern":
-          "linear-gradient(to right, rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.08) 1px, transparent 1px)",
+          "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)",
       },
       boxShadow: {
-        glow: "0 0 40px -10px rgba(59, 130, 246, 0.5)",
-        "glow-lg": "0 0 80px -20px rgba(139, 92, 246, 0.55)",
-        "glow-violet": "0 0 60px -12px rgba(168, 85, 247, 0.5)",
-        glass: "0 8px 32px 0 rgba(2, 6, 23, 0.37)",
+        glow: "0 0 40px -10px rgba(255, 255, 255, 0.16)",
+        "glow-lg": "0 0 80px -20px rgba(255, 255, 255, 0.2)",
+        glass: "0 8px 32px 0 rgba(0, 0, 0, 0.5)",
       },
       keyframes: {
         "accordion-down": {
@@ -126,6 +129,22 @@ const config: Config = {
           "0%, 100%": { opacity: "0.2" },
           "50%": { opacity: "1" },
         },
+        // Particles drift as well as twinkle, so the field reads as moving
+        // rather than just blinking in place. Three variants at different
+        // amplitudes keep the motion from looking synchronised.
+        "drift-a": {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(14px, -18px)" },
+        },
+        "drift-b": {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(-18px, 12px)" },
+        },
+        "drift-c": {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "33%": { transform: "translate(10px, 14px)" },
+          "66%": { transform: "translate(-12px, -8px)" },
+        },
         "gradient-x": {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
@@ -147,6 +166,9 @@ const config: Config = {
         aurora: "aurora 12s ease infinite",
         shimmer: "shimmer 3s linear infinite",
         twinkle: "twinkle 4s ease-in-out infinite",
+        "drift-a": "drift-a 22s ease-in-out infinite",
+        "drift-b": "drift-b 28s ease-in-out infinite",
+        "drift-c": "drift-c 34s ease-in-out infinite",
         "gradient-x": "gradient-x 6s ease infinite",
       },
     },

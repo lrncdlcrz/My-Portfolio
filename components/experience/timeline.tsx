@@ -18,14 +18,14 @@ export function Timeline() {
   return (
     <section className="section">
       <ScrollReveal>
-        <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">Journey</p>
+        <p className="eyebrow">Journey</p>
         <h2 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">Experience</h2>
       </ScrollReveal>
 
       <div ref={containerRef} className="relative mt-14 pl-10 sm:pl-12">
-        <div className="absolute left-3 top-1 h-full w-px bg-white/10 sm:left-4" />
+        <div className="absolute left-3 top-1 h-full w-px bg-foreground/10 sm:left-4" />
         <motion.div
-          className="absolute left-3 top-1 w-px origin-top bg-aurora-gradient shadow-glow sm:left-4"
+          className="absolute left-3 top-1 w-px origin-top bg-mono-gradient shadow-glow sm:left-4"
           style={{ scaleY: progress, height: "100%" }}
         />
 

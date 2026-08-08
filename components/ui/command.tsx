@@ -43,8 +43,18 @@ const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
-  <div className="flex items-center gap-2 border-b border-white/10 px-4" cmdk-input-wrapper="">
-    <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
+  /*
+   * The focus ring lives on this wrapper, not on the input. The sitewide
+   * `input:focus-visible` rule in globals.css outranks cmdk's `outline-none`
+   * on specificity, so the ring was drawing a rounded box around the input
+   * alone: offset past the dialog's right edge and clipped left of the search
+   * icon. `focus-within` here puts one ring around the whole row instead.
+   */
+  <div
+    className="flex items-center gap-2 border-b border-border px-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-foreground/60"
+    cmdk-input-wrapper=""
+  >
+    <Search className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
     <CommandPrimitive.Input
       ref={ref}
       className={cn(

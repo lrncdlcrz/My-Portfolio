@@ -35,7 +35,7 @@ export function Navbar() {
       <div className="mx-auto mt-4 max-w-6xl px-4 sm:px-6">
         <div
           className={cn(
-            "glass flex items-center justify-between rounded-2xl px-4 py-3 transition-shadow sm:px-6",
+            "glass flex items-center justify-between gap-4 rounded-2xl px-4 py-2.5 transition-shadow sm:px-5",
             scrolled && "shadow-glass",
           )}
         >
@@ -47,14 +47,16 @@ export function Navbar() {
             Laurence<span className="text-gradient">.</span>
           </Link>
 
-          <nav className="hidden items-center gap-1 md:flex">
+          {/* `whitespace-nowrap` is the important bit: without it "Tech Stack"
+              breaks onto two lines and pushes the whole bar taller. */}
+          <nav className="hidden items-center gap-0.5 md:flex lg:gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 data-cursor-hover
                 className={cn(
-                  "relative rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+                  "relative whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-medium tracking-tight text-muted-foreground transition-colors hover:text-foreground lg:px-3.5",
                   isActive(link.href) && "text-foreground",
                 )}
               >
@@ -62,7 +64,7 @@ export function Navbar() {
                 {isActive(link.href) && (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute inset-x-3 -bottom-0.5 h-px bg-aurora-gradient"
+                    className="absolute inset-x-3 -bottom-1 h-px bg-foreground"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -76,10 +78,10 @@ export function Navbar() {
               data-cursor-hover
               onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
               title="Search this site"
-              className="glass hidden h-11 items-center gap-2 rounded-full px-4 text-xs text-muted-foreground transition-colors hover:text-foreground sm:flex"
+              className="hidden h-9 items-center gap-2 rounded-full border border-border px-3.5 text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground lg:flex"
               aria-label="Search this site"
             >
-              <Search className="h-3.5 w-3.5" />
+              <Search className="h-3.5 w-3.5" aria-hidden />
               <span>Search</span>
             </button>
             <ThemeToggle />
@@ -113,8 +115,8 @@ export function Navbar() {
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className={cn(
-                      "rounded-xl px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground",
-                      isActive(link.href) && "bg-white/[0.06] text-foreground",
+                      "rounded-xl px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground",
+                      isActive(link.href) && "bg-foreground/[0.06] text-foreground",
                     )}
                   >
                     {link.label}
@@ -123,7 +125,7 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-1 rounded-xl bg-aurora-gradient px-4 py-3 text-center text-sm font-medium text-white"
+                  className="mt-1 rounded-xl bg-mono-gradient px-4 py-3 text-center text-sm font-medium text-background"
                 >
                   Let&apos;s Talk
                 </Link>

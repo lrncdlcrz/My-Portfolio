@@ -22,7 +22,7 @@ export function ProjectsGrid() {
   return (
     <section className="section">
       <ScrollReveal>
-        <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+        <p className="eyebrow">
           More Work
         </p>
         <h2 className="mt-3 font-heading text-2xl font-semibold sm:text-3xl">
@@ -41,7 +41,7 @@ export function ProjectsGrid() {
               "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
               active === filter
                 ? "border-primary/40 bg-primary/10 text-primary"
-                : "border-white/10 bg-white/[0.02] text-muted-foreground hover:text-foreground",
+                : "border-border bg-foreground/[0.02] text-muted-foreground hover:text-foreground",
             )}
           >
             {filter}

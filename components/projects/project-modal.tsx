@@ -44,7 +44,7 @@ export function ProjectModal({ project }: { project: Project }) {
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           {project.features.map((feature) => (
-            <div key={feature.title} className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+            <div key={feature.title} className="rounded-xl border border-border bg-foreground/[0.02] p-4">
               <p className="text-sm font-medium">{feature.title}</p>
               <p className="mt-1 text-xs text-muted-foreground">{feature.description}</p>
             </div>

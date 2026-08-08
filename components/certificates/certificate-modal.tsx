@@ -14,7 +14,7 @@ import {
 export function CertificateModal({ certificate }: { certificate: Certificate }) {
   return (
     <DialogContent className="max-w-lg">
-      <div className="relative mx-auto aspect-square w-48 overflow-hidden rounded-2xl bg-white/5">
+      <div className="relative mx-auto aspect-square w-48 overflow-hidden rounded-2xl bg-foreground/5">
         <FadeImage
           src={certificate.image}
           alt={certificate.title}

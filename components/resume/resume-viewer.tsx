@@ -9,9 +9,9 @@ export function ResumeViewer() {
   return (
     <ScrollReveal variants={scaleIn}>
       <div className="glass-card flex flex-col items-center gap-6 p-10 text-center">
-        <div className="relative flex h-32 w-24 items-center justify-center rounded-xl bg-aurora-gradient shadow-glow-lg">
-          <FileText className="h-12 w-12 text-white" />
-          <span className="absolute inset-x-3 bottom-3 rounded bg-white/20 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-white">
+        <div className="relative flex h-32 w-24 items-center justify-center rounded-xl bg-mono-gradient shadow-glow-lg">
+          <FileText className="h-12 w-12 text-background" />
+          <span className="absolute inset-x-3 bottom-3 rounded bg-background/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-background">
             PDF
           </span>
         </div>

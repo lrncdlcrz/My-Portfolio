@@ -49,13 +49,13 @@ export function LoadingScreen() {
             ))}
           </div>
           <motion.div
-            className="h-px w-40 overflow-hidden rounded-full bg-white/10 sm:w-64"
+            className="h-px w-40 overflow-hidden rounded-full bg-foreground/10 sm:w-64"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
             <motion.div
-              className="h-full w-1/2 bg-aurora-gradient shadow-glow"
+              className="h-full w-1/2 bg-mono-gradient shadow-glow"
               initial={{ x: "-100%" }}
               animate={{ x: "200%" }}
               transition={{

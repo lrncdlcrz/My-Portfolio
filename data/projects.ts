@@ -75,7 +75,10 @@ export const projects: Project[] = [
     ],
     timelineImage: "/projects/elder-care-link/timeline.png",
     logoImage: "/projects/elder-care-link/logo.png",
-    images: ["/projects/elder-care-link/logo.png", "/projects/elder-care-link/timeline.png"],
+    images: [
+      "/projects/elder-care-link/dashboard-overview.png",
+      "/projects/elder-care-link/sign-in.png",
+    ],
     testimonial: {
       quote:
         "Ang problema lang namin tuwing may appointment o emergency, kailangan pang manu-manong hanapin ang mga files sa dami ng mga papel. Nagreresulta ito sa mahabang paghihintay na nakakapagod para sa mga matatanda.",
@@ -85,6 +88,121 @@ export const projects: Project[] = [
       role: "Representative, Information Technology II, OSCA",
     },
     links: {},
+    caseStudy: true,
+  },
+  {
+    id: "kepler",
+    slug: "kepler",
+    title: "Kepler",
+    tagline: "Mission control for your operations",
+    featured: false,
+    caseStudy: true,
+    category: "Marketing Site",
+    status: "Practice Build",
+    role: "Original design and build. A self-directed practice project, taken on to work through WebGL scene composition, hand-written shader authoring, and scroll-driven narrative pacing on a motion-heavy marketing page.",
+    problem:
+      "Marketing sites for AI operations tooling tend to bury the pitch under jargon: the visitor reads three sections about orchestration layers and agent runtimes before learning what the product actually does for them. The goal here was a landing page that leads with the outcome, \"Mission control for your operations\", and only then explains the mechanism.",
+    solution:
+      "Kepler is a fictional AI orchestration product given a real launch page. The hero puts a WebGL planet and its orbiting agents on screen immediately, so the metaphor lands before a single feature is named. From there the page walks a deliberate sequence, trust signals, then feature breakdown, then security posture, then pricing, then the waitlist, with each section pinned and scrubbed to scroll so the narrative advances at reading pace rather than scroll speed.",
+    objectives: [
+      "Lead with the outcome, not the architecture, and prove the metaphor visually before explaining it.",
+      "Author custom GLSL rather than reaching for a shader library, to understand what the noise displacement and fresnel math actually do.",
+      "Drive the whole page from one GSAP ScrollTrigger timeline synced to Lenis, so scroll feels continuous instead of janky.",
+      "Hold a dark, high-contrast visual system consistent enough to read as a real private-beta launch.",
+    ],
+    features: [
+      {
+        title: "Animated Orbital Hero",
+        description:
+          "A Three.js scene composed declaratively through React Three Fiber: a displaced icosphere engine core with hand-written GLSL noise and fresnel shading, ringed by depth-parallaxed agent particles drawn by a custom point shader.",
+      },
+      {
+        title: "Scroll-Scrubbed Narrative",
+        description:
+          "GSAP ScrollTrigger pins each section and scrubs its timeline against scroll progress, with Lenis providing inertial smoothing on the same ticker so the 3D scene and the DOM never drift apart.",
+      },
+      {
+        title: "Structured Launch Flow",
+        description:
+          "Hero, trust bar, feature breakdown, security section, tiered pricing, and waitlist capture, sequenced so each section answers the objection the previous one raises.",
+      },
+      {
+        title: "Private-Beta Visual System",
+        description:
+          "Design tokens for color, type, and spacing centralized in a single Tailwind v4 @theme block, with self-hosted subsetted fonts to keep the dark, high-contrast treatment consistent across every section.",
+      },
+    ],
+    techStack: [
+      "React 19",
+      "Vite",
+      "Tailwind CSS v4",
+      "Three.js",
+      "React Three Fiber",
+      "GLSL",
+      "GSAP + ScrollTrigger",
+      "Lenis",
+      "Framer Motion",
+    ],
+    images: ["/projects/kepler/hero.png", "/projects/kepler/detail.png"],
+    links: {
+      liveDemo: "https://kepler-marketing-site.vercel.app",
+    },
+  },
+  {
+    id: "eclaire",
+    slug: "eclaire",
+    title: "Eclaire Coffee Shop",
+    tagline: "Bold by origin, a single-origin coffee brand told farm-to-cup",
+    featured: false,
+    caseStudy: true,
+    category: "Marketing Site",
+    status: "Practice Build",
+    role: "Rebuilt from a reference concept to practice scroll-driven storytelling and video scrubbing without a framework. I also wrote the Python asset pipeline that generated the background film and the logo, since I had no shot footage to work from.",
+    problem:
+      "Direct-trade food and beverage brands do not sell a product, they sell an origin story. A conventional product page, hero image, price, add to cart, throws that away: it gives the visitor no reason to believe this bag of beans is different from the one beside it on the shelf.",
+    solution:
+      "Eclaire tells the whole farm-to-cup story across scroll-triggered sections before it ever asks for the sale. The page opens on a full-bleed video scrubbed against scroll position, then moves through sourcing, roasting craft, packaging rationale, and audience, and only reaches the spec sheet and tiered pre-order once the story has earned it. Built deliberately lean: no framework, and gsap and lenis are the only two runtime dependencies.",
+    objectives: [
+      "Structure the page as a narrative sequence rather than a product listing, so the origin story arrives before the price.",
+      "Scrub a full-bleed video against scroll position smoothly, which meant encoding it all-keyframe so every frame is seekable.",
+      "Keep the runtime deliberately lean, hand-written ES modules and two dependencies, to prove the effect does not require a framework.",
+      "Generate the missing brand assets programmatically rather than substituting stock imagery.",
+    ],
+    features: [
+      {
+        title: "Scroll-Scrubbed Video Hero",
+        description:
+          "A full-bleed background film driven frame-by-frame from scroll position via GSAP ScrollTrigger, with Lenis smoothing the input, alongside a side-rail section-dot navigator that tracks position through the story.",
+      },
+      {
+        title: "Farm-to-Cup Story Blocks",
+        description:
+          "Sequenced content sections covering sourcing on the volcanic slopes of Mt. Malarayat, roasting craft, packaging and design rationale, and the audience segments the blend is for.",
+      },
+      {
+        title: "Interactive Spec Sheet",
+        description:
+          "Origin, region, varietal, altitude, processing, roast level, cupping score, and tasting notes presented as a scannable specification table, feeding directly into a pre-order flow with tiered 250g / 500g / 1kg pricing.",
+      },
+      {
+        title: "Programmatic Asset Pipeline",
+        description:
+          "A build-time Python pipeline using Pillow and NumPy generated the background film and the circular logo, with a bundled FFmpeg encoding the video all-keyframe so scroll scrubbing stays smooth. Build tooling, not shipped to the browser.",
+      },
+    ],
+    techStack: [
+      "Vanilla JavaScript",
+      "Vite",
+      "GSAP + ScrollTrigger",
+      "Lenis",
+      "Modern CSS",
+      "Python (Pillow, NumPy)",
+      "FFmpeg",
+    ],
+    images: ["/projects/eclaire/hero.png", "/projects/eclaire/detail.png"],
+    links: {
+      liveDemo: "https://eclaire-coffee-shop-sample-website.vercel.app",
+    },
   },
   {
     id: "ub-universal-knowledge",
@@ -191,4 +309,9 @@ export const projects: Project[] = [
 ];
 
 export const featuredProject = projects.find((p) => p.featured)!;
-export const secondaryProjects = projects.filter((p) => !p.featured);
+
+/** Projects rendered as full numbered case studies, capstone first. */
+export const caseStudyProjects = projects.filter((p) => p.caseStudy);
+
+/** Everything else, rendered as cards in the "Other Projects" grid. */
+export const secondaryProjects = projects.filter((p) => !p.caseStudy);

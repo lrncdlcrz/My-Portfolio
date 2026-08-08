@@ -11,9 +11,9 @@ import { fadeRight, blurReveal } from "@/animations/variants";
 export function Story() {
   return (
     <section className="section grid gap-14 lg:grid-cols-[380px_1fr] lg:items-start">
-      <ScrollReveal variants={fadeRight} className="mx-auto w-full max-w-sm lg:sticky lg:top-32">
+      <ScrollReveal variants={fadeRight} className="mx-auto w-full max-w-sm">
         <div className="glass-card relative overflow-hidden p-3">
-          <div className="relative aspect-square overflow-hidden rounded-2xl">
+          <div className="project-media relative aspect-square overflow-hidden rounded-2xl">
             <FadeImage
               src="/images/profile.png"
               alt="Laurence Andrei C. Dela Cruz"
@@ -27,7 +27,7 @@ export function Story() {
 
       <div>
         <ScrollReveal variants={blurReveal}>
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+          <p className="eyebrow">
             About Me
           </p>
           <h1 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">

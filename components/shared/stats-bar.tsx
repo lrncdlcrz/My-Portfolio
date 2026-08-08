@@ -26,7 +26,7 @@ function StatCard({ label, value, suffix }: { label: string; value: number; suff
 
 export function StatsBar() {
   return (
-    <ScrollReveal variants={staggerContainer(0.12)} className="section py-12 sm:py-16">
+    <ScrollReveal variants={staggerContainer(0.12)} className="section py-8 sm:py-10">
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
         {stats.map((stat) => (
           <StatCard key={stat.label} {...stat} />

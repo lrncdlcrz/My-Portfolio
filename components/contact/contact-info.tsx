@@ -11,7 +11,7 @@ export function ContactInfo() {
   return (
     <ScrollReveal variants={fadeRight} className="glass-card flex h-full flex-col justify-between p-8">
       <div>
-        <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+        <p className="eyebrow">
           Get In Touch
         </p>
         <h2 className="mt-3 font-heading text-2xl font-semibold sm:text-3xl">
@@ -28,7 +28,7 @@ export function ContactInfo() {
             data-cursor-hover
             className="flex items-center gap-3 text-sm transition-colors hover:text-primary"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-aurora-gradient text-white shadow-glow">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-mono-gradient text-background shadow-glow">
               <Mail className="h-4 w-4" />
             </span>
             {siteConfig.email}
@@ -38,13 +38,13 @@ export function ContactInfo() {
             data-cursor-hover
             className="flex items-center gap-3 text-sm transition-colors hover:text-primary"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-aurora-gradient text-white shadow-glow">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-mono-gradient text-background shadow-glow">
               <Phone className="h-4 w-4" />
             </span>
             {siteConfig.phone}
           </a>
           <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-aurora-gradient text-white shadow-glow">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-mono-gradient text-background shadow-glow">
               <MapPin className="h-4 w-4" />
             </span>
             {siteConfig.location}
@@ -68,7 +68,7 @@ export function ContactInfo() {
               data-cursor-hover
               whileHover={{ y: -3, scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-white/30"
+              className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:border-foreground/40"
             >
               <SocialIcon iconKey={social.icon} className="h-5 w-5" />
             </motion.a>

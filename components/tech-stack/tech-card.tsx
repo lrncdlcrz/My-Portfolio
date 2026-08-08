@@ -44,15 +44,15 @@ export function TechCard({ tech }: { tech: TechEntry }) {
             className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             style={{
               background:
-                "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(168,85,247,0.15))",
+                "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))",
             }}
           />
           {/* glass reflection sweep */}
           <span
             className={
               hovering
-                ? "pointer-events-none absolute -inset-y-4 -left-1/2 w-1/3 -skew-x-12 bg-white/10 transition-transform duration-700 ease-out translate-x-[420%]"
-                : "pointer-events-none absolute -inset-y-4 -left-1/2 w-1/3 -skew-x-12 bg-white/10 transition-transform duration-700 ease-out translate-x-0"
+                ? "pointer-events-none absolute -inset-y-4 -left-1/2 w-1/3 -skew-x-12 bg-foreground/10 transition-transform duration-700 ease-out translate-x-[420%]"
+                : "pointer-events-none absolute -inset-y-4 -left-1/2 w-1/3 -skew-x-12 bg-foreground/10 transition-transform duration-700 ease-out translate-x-0"
             }
           />
 

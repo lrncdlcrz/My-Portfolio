@@ -4,7 +4,12 @@ import { TechStats } from "@/components/tech-stack/tech-stats";
 import { ProjectTechShowcase } from "@/components/tech-stack/project-tech-showcase";
 import { BuiltWith } from "@/components/tech-stack/built-with";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
-import { elderCareLinkTech, ubUniversalKnowledgeTech } from "@/data/tech-catalog";
+import {
+  elderCareLinkTech,
+  ubUniversalKnowledgeTech,
+  keplerTech,
+  eclaireTech,
+} from "@/data/tech-catalog";
 import { staggerContainer } from "@/animations/variants";
 
 export const metadata: Metadata = {
@@ -21,7 +26,7 @@ export default function TechStackPage() {
     <main>
       <section className="section pb-0 text-center">
         <ScrollReveal>
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+          <p className="eyebrow">
             Technology Dashboard
           </p>
           <h1 className="mx-auto mt-3 max-w-2xl font-heading text-4xl font-semibold sm:text-5xl">
@@ -46,7 +51,7 @@ export default function TechStackPage() {
 
       <section className="section">
         <ScrollReveal className="text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+          <p className="eyebrow">
             In Practice
           </p>
           <h2 className="mx-auto mt-3 max-w-xl font-heading text-3xl font-semibold sm:text-4xl">
@@ -60,6 +65,18 @@ export default function TechStackPage() {
             tagline="QR-Integrated Emergency SMS & Medical History System"
             roles={["Full Stack", "Frontend", "Backend", "UI/UX", "Database"]}
             tech={elderCareLinkTech}
+          />
+          <ProjectTechShowcase
+            title="Kepler"
+            tagline="Mission control for your operations, a motion-heavy AI ops landing page"
+            roles={["Frontend", "3D / WebGL", "Motion", "UI/UX"]}
+            tech={keplerTech}
+          />
+          <ProjectTechShowcase
+            title="Eclaire Coffee Shop"
+            tagline="A scroll-driven, farm-to-cup single-origin brand site"
+            roles={["Frontend", "Motion", "Asset Pipeline"]}
+            tech={eclaireTech}
           />
           <ProjectTechShowcase
             title="UB Universal Knowledge"

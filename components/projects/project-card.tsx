@@ -39,7 +39,7 @@ export function ProjectCard({ project }: { project: Project }) {
             {project.techStack.slice(0, 3).map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-white/10 bg-white/[0.02] px-2.5 py-1 text-xs text-muted-foreground"
+                className="rounded-full border border-border bg-foreground/[0.02] px-2.5 py-1 text-xs text-muted-foreground"
               >
                 {tech}
               </span>

@@ -1,24 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
+/**
+ * Two-part cursor: a small solid dot that tracks the pointer precisely, and a
+ * thin outline ring that trails it with a softer spring. Over interactive
+ * targets the ring expands and the dot shrinks away, so the ring reads as a
+ * selection reticle rather than a blurred glow.
+ *
+ * Both parts are drawn with `currentColor`-style tokens rather than a blend
+ * mode, which keeps the cursor crisp on the site's glass panels; the previous
+ * blurred `mix-blend-mode` blob smeared over them.
+ */
 export function CursorGlow() {
   const reducedMotion = useReducedMotion();
-  const { resolvedTheme } = useTheme();
   const [enabled, setEnabled] = useState(false);
   const [hovering, setHovering] = useState(false);
+  const [pressed, setPressed] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
+  // The dot is nearly rigid; the ring lags slightly for a sense of weight.
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  const springX = useSpring(x, { stiffness: 800, damping: 45, mass: 0.25 });
-  const springY = useSpring(y, { stiffness: 800, damping: 45, mass: 0.25 });
-
-  useEffect(() => setMounted(true), []);
+  const dotX = useSpring(x, { stiffness: 1600, damping: 60, mass: 0.2 });
+  const dotY = useSpring(y, { stiffness: 1600, damping: 60, mass: 0.2 });
+  const ringX = useSpring(x, { stiffness: 320, damping: 32, mass: 0.42 });
+  const ringY = useSpring(y, { stiffness: 320, damping: 32, mass: 0.42 });
 
   useEffect(() => {
     const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
@@ -33,50 +42,73 @@ export function CursorGlow() {
     const handleMove = (event: MouseEvent) => {
       x.set(event.clientX);
       y.set(event.clientY);
-      if (!visible) setVisible(true);
-
-      const target = event.target as HTMLElement;
-      setHovering(Boolean(target.closest("a, button, [data-cursor-hover]")));
+      setVisible(true);
+      const target = event.target as HTMLElement | null;
+      setHovering(
+        Boolean(target?.closest?.("a, button, input, textarea, select, [data-cursor-hover]")),
+      );
     };
+
+    const handleLeave = () => setVisible(false);
+    const handleDown = () => setPressed(true);
+    const handleUp = () => setPressed(false);
 
     window.addEventListener("mousemove", handleMove);
+    document.addEventListener("mouseleave", handleLeave);
+    window.addEventListener("mousedown", handleDown);
+    window.addEventListener("mouseup", handleUp);
+
     return () => {
       window.removeEventListener("mousemove", handleMove);
+      document.removeEventListener("mouseleave", handleLeave);
+      window.removeEventListener("mousedown", handleDown);
+      window.removeEventListener("mouseup", handleUp);
       document.documentElement.classList.remove("custom-cursor");
     };
-  }, [enabled, visible, x, y]);
+  }, [enabled, x, y]);
 
   if (!enabled) return null;
 
-  const isDark = !mounted || resolvedTheme === "dark";
+  const ringSize = hovering ? 44 : 26;
 
   return (
-    <motion.div
-      aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[999] rounded-full"
-      style={{
-        x: springX,
-        y: springY,
-        translateX: "-50%",
-        translateY: "-50%",
-        opacity: visible ? 1 : 0,
-        mixBlendMode: isDark ? "screen" : "multiply",
-      }}
-      animate={{
-        width: hovering ? 56 : 20,
-        height: hovering ? 56 : 20,
-      }}
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-    >
-      <div
-        className="h-full w-full rounded-full"
+    <>
+      {/* Trailing ring */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none fixed left-0 top-0 z-[999] rounded-full border border-foreground/50"
         style={{
-          background: isDark
-            ? "radial-gradient(circle, rgba(59,130,246,0.9) 0%, rgba(139,92,246,0.5) 45%, transparent 75%)"
-            : "radial-gradient(circle, rgba(37,99,235,0.55) 0%, rgba(139,92,246,0.4) 45%, transparent 75%)",
-          filter: "blur(2px)",
+          x: ringX,
+          y: ringY,
+          translateX: "-50%",
+          translateY: "-50%",
         }}
+        animate={{
+          width: ringSize,
+          height: ringSize,
+          opacity: visible ? (hovering ? 0.9 : 0.45) : 0,
+          scale: pressed ? 0.85 : 1,
+        }}
+        transition={{ type: "spring", stiffness: 420, damping: 30 }}
       />
-    </motion.div>
+
+      {/* Leading dot */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none fixed left-0 top-0 z-[999] rounded-full bg-foreground"
+        style={{
+          x: dotX,
+          y: dotY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{
+          width: hovering ? 4 : 6,
+          height: hovering ? 4 : 6,
+          opacity: visible ? (hovering ? 0.6 : 1) : 0,
+        }}
+        transition={{ type: "spring", stiffness: 600, damping: 32 }}
+      />
+    </>
   );
 }

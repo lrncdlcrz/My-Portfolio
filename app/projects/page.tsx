@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { ElderCareCaseStudy } from "@/components/projects/elder-care-case-study";
+import { CaseStudy } from "@/components/projects/case-study";
 import { ProjectsGrid } from "@/components/projects/projects-grid";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { caseStudyProjects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Featured work including Elder-Care Link, a QR-integrated emergency SMS and medical history system, and UB Universal Knowledge.",
+    "Case studies for Elder-Care Link, a QR-integrated emergency SMS and medical history system, Kepler, a motion-heavy AI operations landing page, and Eclaire, a scroll-driven single-origin coffee brand site.",
   alternates: {
     canonical: "/projects",
   },
@@ -17,15 +18,25 @@ export default function ProjectsPage() {
     <main>
       <section className="section pb-0 text-center">
         <ScrollReveal>
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
-            Selected Work
-          </p>
+          <p className="eyebrow">Selected Work</p>
           <h1 className="mx-auto mt-3 max-w-2xl font-heading text-4xl font-semibold sm:text-5xl">
             Projects built to solve real problems.
           </h1>
         </ScrollReveal>
       </section>
-      <ElderCareCaseStudy />
+
+      {caseStudyProjects.map((project) => (
+        <CaseStudy
+          key={project.slug}
+          project={project}
+          eyebrow={
+            project.slug === "elder-care-link"
+              ? "Featured Case Study"
+              : "Case Study · Practice Build"
+          }
+        />
+      ))}
+
       <ProjectsGrid />
     </main>
   );

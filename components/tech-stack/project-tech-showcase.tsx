@@ -25,7 +25,7 @@ export function ProjectTechShowcase({ title, tagline, roles, tech }: ProjectTech
           {roles.map((role) => (
             <span
               key={role}
-              className="rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 text-xs text-primary"
+              className="rounded-full border border-border bg-foreground/[0.06] px-2.5 py-1 text-xs text-foreground"
             >
               {role}
             </span>
@@ -46,7 +46,7 @@ export function ProjectTechShowcase({ title, tagline, roles, tech }: ProjectTech
             variants={scaleIn}
             title={item.name}
             data-cursor-hover
-            className="glass flex flex-col items-center gap-2 rounded-xl p-3 text-center transition-colors hover:border-primary/30"
+            className="group glass flex flex-col items-center gap-2 rounded-xl p-3 text-center transition-colors hover:border-foreground/70"
           >
             <TechIcon iconKey={item.iconKey} className="h-6 w-6" />
             <span className="text-[11px] leading-tight text-muted-foreground">

@@ -10,10 +10,10 @@ import {
   Award,
   FileText,
   Mail,
-  Github,
-  Linkedin,
   SunMoon,
   Download,
+  ShieldCheck,
+  Scale,
 } from "lucide-react";
 import {
   CommandDialog,
@@ -23,6 +23,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { SocialIcon } from "@/components/shared/social-icon";
 import { socialLinks } from "@/constants/site";
 
 export function CommandPalette() {
@@ -62,8 +63,6 @@ export function CommandPalette() {
     window.open(href, "_blank", "noopener,noreferrer");
   }, []);
 
-  const github = socialLinks.find((s) => s.icon === "github");
-  const linkedin = socialLinks.find((s) => s.icon === "linkedin");
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
@@ -103,17 +102,28 @@ export function CommandPalette() {
             <SunMoon className="h-4 w-4" /> Toggle Theme
           </CommandItem>
         </CommandGroup>
+        {/* Every profile in the shared config, not just GitHub and LinkedIn,
+            so the palette matches what the footer already lists. */}
         <CommandGroup heading="Elsewhere">
-          {github && (
-            <CommandItem onSelect={() => openExternal(github.href)}>
-              <Github className="h-4 w-4" /> GitHub
+          {socialLinks.map((social) => (
+            <CommandItem
+              key={social.href}
+              value={`${social.label} profile link`}
+              onSelect={() => openExternal(social.href)}
+            >
+              <SocialIcon iconKey={social.icon} className="h-4 w-4" />
+              {social.label}
             </CommandItem>
-          )}
-          {linkedin && (
-            <CommandItem onSelect={() => openExternal(linkedin.href)}>
-              <Linkedin className="h-4 w-4" /> LinkedIn
-            </CommandItem>
-          )}
+          ))}
+        </CommandGroup>
+
+        <CommandGroup heading="Legal">
+          <CommandItem onSelect={() => go("/privacy")}>
+            <ShieldCheck className="h-4 w-4" /> Privacy Policy
+          </CommandItem>
+          <CommandItem onSelect={() => go("/terms")}>
+            <Scale className="h-4 w-4" /> Terms &amp; Conditions
+          </CommandItem>
         </CommandGroup>
       </CommandList>
     </CommandDialog>

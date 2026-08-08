@@ -35,6 +35,11 @@ export const navLinks = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
+export const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms & Conditions", href: "/terms" },
+] as const;
+
 export const socialLinks = [
   {
     label: "GitHub (Main)",

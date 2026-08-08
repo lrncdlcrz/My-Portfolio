@@ -10,12 +10,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/certificates",
     "/resume",
     "/contact",
+    "/privacy",
+    "/terms",
   ];
+
+  const isLegal = (route: string) => route === "/privacy" || route === "/terms";
 
   return routes.map((route) => ({
     url: `${siteConfig.url}${route}`,
     lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: route === "" ? 1 : 0.7,
+    changeFrequency: isLegal(route) ? "yearly" : "monthly",
+    priority: route === "" ? 1 : isLegal(route) ? 0.3 : 0.7,
   }));
 }

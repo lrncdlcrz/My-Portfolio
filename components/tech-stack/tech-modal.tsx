@@ -14,7 +14,7 @@ import {
 export function TechModal({ tech }: { tech: TechEntry }) {
   return (
     <DialogContent className="max-w-md">
-      <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white/5 shadow-glow">
+      <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-foreground/5 shadow-glow">
         <TechIcon iconKey={tech.iconKey} className="h-11 w-11" />
       </div>
       <DialogHeader className="text-center">

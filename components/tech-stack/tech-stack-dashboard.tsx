@@ -62,7 +62,7 @@ export function TechStackDashboard() {
             "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
             activeCategory === "all"
               ? "border-primary/40 bg-primary/10 text-primary"
-              : "border-white/10 bg-white/[0.02] text-muted-foreground hover:text-foreground",
+              : "border-border bg-foreground/[0.02] text-muted-foreground hover:text-foreground",
           )}
         >
           All
@@ -77,7 +77,7 @@ export function TechStackDashboard() {
               "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
               activeCategory === id
                 ? "border-primary/40 bg-primary/10 text-primary"
-                : "border-white/10 bg-white/[0.02] text-muted-foreground hover:text-foreground",
+                : "border-border bg-foreground/[0.02] text-muted-foreground hover:text-foreground",
             )}
           >
             {techCategoryLabels[id]}
@@ -99,7 +99,7 @@ export function TechStackDashboard() {
                   type="button"
                   onClick={() => toggleCollapse(categoryId)}
                   data-cursor-hover
-                  className="flex w-full items-center justify-between gap-3 border-b border-white/10 pb-3 text-left"
+                  className="flex w-full items-center justify-between gap-3 border-b border-border pb-3 text-left"
                 >
                   <h2 className="font-heading text-xl font-semibold">
                     {techCategoryLabels[categoryId]}

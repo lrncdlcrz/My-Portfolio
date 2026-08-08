@@ -11,7 +11,7 @@ export function SkillsGrid() {
   return (
     <section id="skills" className="section scroll-mt-32">
       <ScrollReveal>
-        <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+        <p className="eyebrow">
           What I Work With
         </p>
         <h2 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">Skills</h2>

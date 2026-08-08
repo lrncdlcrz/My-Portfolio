@@ -15,7 +15,7 @@ export function SkillCategoryCard({ category, description, skills }: SkillCatego
       className="glass-card group flex flex-col gap-4 p-6 transition-shadow hover:shadow-glow"
     >
       <div className="flex items-center gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-aurora-gradient text-white shadow-glow">
+        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-mono-gradient text-background shadow-glow">
           {Icon && <Icon className="h-5 w-5" />}
         </span>
         <div>
@@ -27,7 +27,7 @@ export function SkillCategoryCard({ category, description, skills }: SkillCatego
         {skills.map((skill) => (
           <span
             key={skill.name}
-            className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-muted-foreground transition-colors group-hover:border-primary/20"
+            className="rounded-full border border-border bg-foreground/[0.03] px-3 py-1.5 text-xs text-muted-foreground transition-colors group-hover:border-primary/20"
           >
             {skill.name}
           </span>

@@ -9,7 +9,7 @@ import { staggerContainer, scaleIn, fadeRight } from "@/animations/variants";
 export function ResumeHighlights() {
   return (
     <ScrollReveal variants={fadeRight} className="glass-card p-8">
-      <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+      <p className="eyebrow">
         Professional Summary
       </p>
       <p className="mt-4 text-muted-foreground">{professionalSummary}</p>

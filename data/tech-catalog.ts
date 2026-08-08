@@ -9,6 +9,7 @@ export const techCategoryLabels: Record<TechCategoryId, string> = {
   mobile: "Mobile Development",
   cloud: "Cloud Computing",
   uiux: "UI/UX Design",
+  motion: "3D & Motion",
   vcs: "Version Control",
   tools: "Development Tools",
   engineering: "Software Engineering",
@@ -101,6 +102,21 @@ export const techCatalog: TechEntry[] = [
   { id: "sec-cloud", name: "Cloud Security", description: "Securing cloud-hosted services and data.", category: "security", iconKey: "cloudSecurity" },
   { id: "sec-auth", name: "Authentication", description: "Verifying who a user is before granting access.", category: "security", iconKey: "authentication" },
   { id: "sec-authz", name: "Authorization", description: "Controlling what an authenticated user can do.", category: "security", iconKey: "authorization" },
+
+  // 3D & Motion, from the Kepler and Eclaire builds
+  { id: "motion-threejs", name: "Three.js", description: "WebGL scene graph behind the Kepler orbital hero.", category: "motion", iconKey: "threejs" },
+  { id: "motion-r3f", name: "React Three Fiber", description: "Declarative React renderer for Three.js scenes.", category: "motion", iconKey: "r3f" },
+  { id: "motion-gsap", name: "GSAP + ScrollTrigger", description: "Pinned sections and scrubbed scroll timelines.", category: "motion", iconKey: "gsap" },
+  { id: "motion-lenis", name: "Lenis", description: "Inertial smooth scrolling synced to the GSAP ticker.", category: "motion", iconKey: "lenis" },
+  { id: "motion-framer", name: "Framer Motion", description: "Component-level animation across React interfaces.", category: "motion", iconKey: "framer" },
+
+  // Tooling picked up on those same builds
+  { id: "lang-glsl", name: "GLSL", description: "Hand-written noise displacement and fresnel shaders.", category: "languages", iconKey: "glsl" },
+  { id: "tools-vite", name: "Vite", description: "Dev server and production bundler for both practice builds.", category: "tools", iconKey: "vite" },
+  { id: "tools-ffmpeg", name: "FFmpeg", description: "All-keyframe H.264 encoding for scroll-scrubbed video.", category: "tools", iconKey: "ffmpeg" },
+  { id: "tools-pillow", name: "Pillow (PIL)", description: "Python imaging used to generate brand assets.", category: "tools", iconKey: "pillow" },
+  { id: "tools-numpy", name: "NumPy", description: "Array maths behind the generated background film.", category: "tools", iconKey: "numpy" },
+  { id: "cloud-vercel", name: "Vercel", description: "Git-connected hosting with preview deploys on every PR.", category: "cloud", iconKey: "vercel" },
 ];
 
 const elderCareLinkTechIds = [
@@ -129,12 +145,48 @@ const ubUniversalKnowledgeTechIds = [
   "tools-eclipse",
 ];
 
+const keplerTechIds = [
+  "fe-react",
+  "tools-vite",
+  "lang-js",
+  "fe-tailwind",
+  "motion-threejs",
+  "motion-r3f",
+  "lang-glsl",
+  "motion-gsap",
+  "motion-lenis",
+  "motion-framer",
+  "fe-responsive",
+  "cloud-vercel",
+  "vcs-git",
+  "vcs-github",
+];
+
+const eclaireTechIds = [
+  "lang-js",
+  "tools-vite",
+  "lang-html5",
+  "lang-css3",
+  "motion-gsap",
+  "motion-lenis",
+  "lang-python",
+  "tools-pillow",
+  "tools-numpy",
+  "tools-ffmpeg",
+  "fe-responsive",
+  "cloud-vercel",
+  "vcs-git",
+  "vcs-github",
+];
+
 const techById = new Map(techCatalog.map((t) => [t.id, t]));
 
 for (const entry of techCatalog) {
   const projects: string[] = [];
   if (elderCareLinkTechIds.includes(entry.id)) projects.push("Elder-Care Link");
   if (ubUniversalKnowledgeTechIds.includes(entry.id)) projects.push("UB Universal Knowledge");
+  if (keplerTechIds.includes(entry.id)) projects.push("Kepler");
+  if (eclaireTechIds.includes(entry.id)) projects.push("Eclaire Coffee Shop");
   if (projects.length > 0) entry.projects = projects;
 }
 
@@ -143,6 +195,14 @@ export const elderCareLinkTech: TechEntry[] = elderCareLinkTechIds
   .filter((t): t is TechEntry => Boolean(t));
 
 export const ubUniversalKnowledgeTech: TechEntry[] = ubUniversalKnowledgeTechIds
+  .map((id) => techById.get(id))
+  .filter((t): t is TechEntry => Boolean(t));
+
+export const keplerTech: TechEntry[] = keplerTechIds
+  .map((id) => techById.get(id))
+  .filter((t): t is TechEntry => Boolean(t));
+
+export const eclaireTech: TechEntry[] = eclaireTechIds
   .map((id) => techById.get(id))
   .filter((t): t is TechEntry => Boolean(t));
 

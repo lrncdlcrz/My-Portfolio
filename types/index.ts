@@ -55,8 +55,10 @@ export interface Project {
   title: string;
   tagline: string;
   featured: boolean;
-  category: "Web App" | "Game" | "Practice";
-  status: "Coming Soon" | "In Progress" | "Completed";
+  /** Renders as a full numbered case study rather than a card in the grid. */
+  caseStudy?: boolean;
+  category: "Web App" | "Game" | "Practice" | "Marketing Site";
+  status: "Coming Soon" | "In Progress" | "Completed" | "Practice Build";
   team?: string[];
   teamName?: string;
   role: string;
@@ -76,6 +78,27 @@ export interface Project {
     liveDemo?: string;
     caseStudy?: string;
   };
+}
+
+/**
+ * Single source of truth for the projects that appear BOTH in the homepage
+ * pinned showcase and as full case studies on /projects. The practice-project
+ * grid stays in `Project[]` because it renders differently.
+ */
+export interface ProjectShowcase {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  bullets: string[];
+  stack: string[];
+  media: { src: string; alt: string }[];
+  liveUrl?: string;
+  repoUrl?: string;
+  status: "Completed" | "In Progress" | "Practice Build";
+  role: string;
+  /** Rendered directly beneath this project's showcase panel. */
+  testimonial?: Testimonial;
 }
 
 export interface ExperienceItem {
@@ -102,6 +125,7 @@ export type TechCategoryId =
   | "mobile"
   | "cloud"
   | "uiux"
+  | "motion"
   | "vcs"
   | "tools"
   | "engineering"

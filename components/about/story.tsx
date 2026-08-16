@@ -14,12 +14,15 @@ export function Story() {
       <ScrollReveal variants={fadeRight} className="mx-auto w-full max-w-sm">
         <div className="glass-card relative overflow-hidden p-3">
           <div className="project-media relative aspect-square overflow-hidden rounded-2xl">
+            {/* A 3:4 portrait in a square frame, so the crop is anchored
+                toward the top to keep the subject rather than centring on
+                the wall below. */}
             <FadeImage
-              src="/images/profile.png"
+              src="/images/about-portrait.jpg"
               alt="Laurence Andrei C. Dela Cruz"
               fill
               sizes="(min-width: 1024px) 380px, 90vw"
-              className="object-cover"
+              className="object-cover object-[50%_28%]"
             />
           </div>
         </div>

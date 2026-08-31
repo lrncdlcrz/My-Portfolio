@@ -28,7 +28,7 @@ export const showcaseProjects: ProjectShowcase[] = [
     media: [
       {
         src: "/projects/elder-care-link/dashboard-overview.png",
-        alt: "Elder-Care Link admin dashboard showing registered senior totals, monthly registration chart, and a seniors-by-barangay breakdown",
+        alt: "Elder-Care Link admin dashboard in dark mode, showing registered senior totals, QR scans, active emergencies, a monthly registration chart and a seniors-by-barangay breakdown",
       },
       {
         src: "/projects/elder-care-link/sign-in.png",

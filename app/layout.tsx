@@ -9,7 +9,7 @@ import { BackToTop } from "@/components/shared/back-to-top";
 import { CommandPalette } from "@/components/shared/command-palette";
 import { Navbar } from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer/footer";
-import { siteConfig } from "@/constants/site";
+import { siteConfig, socialLinks } from "@/constants/site";
 import "@/styles/globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -86,12 +86,9 @@ const personJsonLd = {
     "@type": "CollegeOrUniversity",
     name: siteConfig.university,
   },
-  sameAs: [
-    "https://github.com/Laurence-rgb",
-    "https://www.linkedin.com/in/laurence-delacruz-74a55341a/",
-    "https://www.upwork.com/freelancers/~01908eaa4b245174f3",
-    "https://www.fiverr.com/laurencetoshiro",
-  ],
+  // Derived from the shared config rather than hardcoded: this list had
+  // already drifted out of sync with socialLinks once.
+  sameAs: socialLinks.map((s) => s.href),
 };
 
 export default function RootLayout({

@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Aspiring Full Stack Developer and BS Information Technology student building modern, scalable web applications, from design to deployment. Based in Batangas City, Philippines, open for freelance, remote, and internship opportunities.",
   url: "https://laurencedlcrzportfolio.vercel.app",
-  email: "laurenceandrei24@gmail.com",
+  email: "laurencedlcrz11@gmail.com",
   phone: "+63 939-197-8056",
   location: "Batangas City, Philippines",
   university: "University of Batangas",
@@ -42,13 +42,8 @@ export const legalLinks = [
 
 export const socialLinks = [
   {
-    label: "GitHub (Main)",
-    href: "https://github.com/Laurence-Dev11",
-    icon: "github",
-  },
-  {
-    label: "GitHub (Alt)",
-    href: "https://github.com/Laurence-rgb",
+    label: "GitHub",
+    href: "https://github.com/lrncdlcrz",
     icon: "github",
   },
   {
@@ -58,17 +53,17 @@ export const socialLinks = [
   },
   {
     label: "Upwork",
-    href: "https://www.upwork.com/freelancers/~01908eaa4b245174f3",
+    href: "https://www.upwork.com/freelancers/~01d8dd7ee536437bf8?viewMode=1",
     icon: "upwork",
   },
   {
     label: "OnlineJobs.ph",
-    href: "https://v2.onlinejobs.ph/jobseekers/info/4729421",
+    href: "https://v2.onlinejobs.ph/jobseekers/info/5277566",
     icon: "onlinejobs",
   },
   {
     label: "Fiverr",
-    href: "https://www.fiverr.com/laurencetoshiro",
+    href: "https://www.fiverr.com/laurencedev11?public_mode=true",
     icon: "fiverr",
   },
 ] as const;

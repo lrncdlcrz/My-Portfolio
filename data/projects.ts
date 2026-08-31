@@ -77,6 +77,7 @@ export const projects: Project[] = [
     logoImage: "/projects/elder-care-link/logo.png",
     images: [
       "/projects/elder-care-link/dashboard-overview.png",
+      "/projects/elder-care-link/dashboard-light.png",
       "/projects/elder-care-link/sign-in.png",
     ],
     testimonial: {

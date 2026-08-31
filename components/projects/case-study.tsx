@@ -7,7 +7,6 @@ import { elderCareLinkTech } from "@/data/tech-catalog";
 import { stackIconKeys } from "@/data/showcase";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ComingSoonButton } from "@/components/projects/coming-soon-button";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { FadeImage } from "@/components/shared/fade-image";
 import { BrowserFrame } from "@/components/projects/browser-frame";
@@ -95,30 +94,31 @@ export function CaseStudy({ project, eyebrow }: { project: Project; eyebrow: str
                   {project.teamName}: {project.team.join(", ")}
                 </p>
               )}
-              <div className="mt-6 flex flex-wrap gap-3">
-                {project.links.liveDemo ? (
-                  <Button asChild size="sm">
-                    <a
-                      href={project.links.liveDemo}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      Visit Live Site <ExternalLink className="h-4 w-4" aria-hidden />
-                    </a>
-                  </Button>
-                ) : (
-                  <ComingSoonButton label="Live Demo" />
-                )}
-                {project.links.github ? (
-                  <Button asChild size="sm" variant="outline">
-                    <a href={project.links.github} target="_blank" rel="noreferrer noopener">
-                      GitHub <ExternalLink className="h-4 w-4" aria-hidden />
-                    </a>
-                  </Button>
-                ) : (
-                  <ComingSoonButton label="GitHub" />
-                )}
-              </div>
+              {/* Only rendered once a link actually exists: a disabled
+                  "Coming Soon" button advertises what is missing rather than
+                  the work itself. */}
+              {(project.links.liveDemo || project.links.github) && (
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {project.links.liveDemo && (
+                    <Button asChild size="sm">
+                      <a
+                        href={project.links.liveDemo}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        Visit Live Site <ExternalLink className="h-4 w-4" aria-hidden />
+                      </a>
+                    </Button>
+                  )}
+                  {project.links.github && (
+                    <Button asChild size="sm" variant="outline">
+                      <a href={project.links.github} target="_blank" rel="noreferrer noopener">
+                        GitHub <ExternalLink className="h-4 w-4" aria-hidden />
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

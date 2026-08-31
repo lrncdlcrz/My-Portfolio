@@ -146,7 +146,7 @@ export const projects: Project[] = [
     ],
     images: ["/projects/kepler/hero.png", "/projects/kepler/detail.png"],
     links: {
-      liveDemo: "https://kepler-marketing-site.vercel.app",
+      liveDemo: "https://kepler-v2.vercel.app",
     },
   },
   {
@@ -202,7 +202,7 @@ export const projects: Project[] = [
     ],
     images: ["/projects/eclaire/hero.png", "/projects/eclaire/detail.png"],
     links: {
-      liveDemo: "https://eclaire-coffee-shop-sample-website.vercel.app",
+      liveDemo: "https://eclaire-v2.vercel.app",
     },
   },
   {

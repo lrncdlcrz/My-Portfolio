@@ -48,7 +48,7 @@ export const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/laurence-delacruz-74a55341a/",
+    href: "https://www.linkedin.com/in/laurence-dela-cruz-6717b2429/",
     icon: "linkedin",
   },
   {

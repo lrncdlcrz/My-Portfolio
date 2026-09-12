@@ -20,7 +20,7 @@ export function ProjectsGrid() {
   }, [active]);
 
   return (
-    <section className="section">
+    <section className="section pt-12">
       <ScrollReveal>
         <p className="eyebrow">
           More Work

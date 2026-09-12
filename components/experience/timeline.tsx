@@ -16,7 +16,9 @@ export function Timeline() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
 
   return (
-    <section className="section">
+    // Trimmed top padding: this follows the About story directly, whose own
+    // bottom padding already separates the two.
+    <section className="section pt-12">
       <ScrollReveal>
         <p className="eyebrow">Journey</p>
         <h2 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">Experience</h2>
@@ -37,7 +39,7 @@ export function Timeline() {
                 aria-hidden
               >
                 {item.type === "future" ? (
-                  <Rocket className="h-3 w-3 text-accent" />
+                  <Rocket className="h-3 w-3 text-primary" />
                 ) : (
                   <Sparkles className="h-3 w-3 text-primary" />
                 )}

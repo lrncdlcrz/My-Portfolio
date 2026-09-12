@@ -25,14 +25,18 @@ export const siteConfig = {
   ],
 } as const;
 
+// Anchors into the one-page layout (ids live in app/page.tsx). The leading "/"
+// keeps them working from /privacy and /terms, where the section ids don't
+// exist on the current page. Order matches the page, so the scroll-spy
+// underline moves steadily left to right as you scroll down.
 export const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Tech Stack", href: "/tech-stack" },
-  { label: "Projects", href: "/projects" },
-  { label: "Certificates", href: "/certificates" },
-  { label: "Resume", href: "/resume" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Projects", href: "/#projects" },
+  { label: "About", href: "/#about" },
+  { label: "Tech Stack", href: "/#tech-stack" },
+  { label: "Certificates", href: "/#certificates" },
+  { label: "Resume", href: "/#resume" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 export const legalLinks = [

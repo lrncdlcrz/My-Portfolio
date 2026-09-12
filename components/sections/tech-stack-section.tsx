@@ -1,6 +1,4 @@
-import type { Metadata } from "next";
 import { TechStackDashboard } from "@/components/tech-stack/tech-stack-dashboard";
-import { TechStats } from "@/components/tech-stack/tech-stats";
 import { ProjectTechShowcase } from "@/components/tech-stack/project-tech-showcase";
 import { BuiltWith } from "@/components/tech-stack/built-with";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
@@ -10,38 +8,27 @@ import {
   keplerTech,
   eclaireTech,
 } from "@/data/tech-catalog";
-import { staggerContainer } from "@/animations/variants";
 
-export const metadata: Metadata = {
-  title: "Tech Stack",
-  description:
-    "An interactive breakdown of every technology, language, and tool Laurence Andrei C. Dela Cruz actually uses, from frontend and backend to cloud, cybersecurity, and software engineering practice.",
-  alternates: {
-    canonical: "/tech-stack",
-  },
-};
-
-export default function TechStackPage() {
+/**
+ * Formerly the /tech-stack page. The TechStats tiles that sat under the
+ * heading were dropped in the move: the homepage stat bar already shows the
+ * same counts, and the tiles carried a hardcoded "Major Projects: 2".
+ */
+export function TechStackSection() {
   return (
-    <main>
+    <>
       <section className="section pb-0 text-center">
         <ScrollReveal>
           <p className="eyebrow">
             Technology Dashboard
           </p>
-          <h1 className="mx-auto mt-3 max-w-2xl font-heading text-4xl font-semibold sm:text-5xl">
+          <h2 className="mx-auto mt-3 max-w-2xl font-heading text-4xl font-semibold sm:text-5xl">
             Tech Stack
-          </h1>
+          </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Every language, framework, and tool I actually use: searchable, filterable, and
             tied back to the real projects they were used on.
           </p>
-        </ScrollReveal>
-      </section>
-
-      <section className="section">
-        <ScrollReveal variants={staggerContainer(0.1)}>
-          <TechStats />
         </ScrollReveal>
       </section>
 
@@ -54,9 +41,9 @@ export default function TechStackPage() {
           <p className="eyebrow">
             In Practice
           </p>
-          <h2 className="mx-auto mt-3 max-w-xl font-heading text-3xl font-semibold sm:text-4xl">
+          <h3 className="mx-auto mt-3 max-w-xl font-heading text-3xl font-semibold sm:text-4xl">
             Technology by Project
-          </h2>
+          </h3>
         </ScrollReveal>
 
         <div className="mt-10 space-y-6">
@@ -90,6 +77,6 @@ export default function TechStackPage() {
       <section className="section">
         <BuiltWith />
       </section>
-    </main>
+    </>
   );
 }

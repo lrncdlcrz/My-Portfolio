@@ -39,7 +39,7 @@ function SectionEyebrow({
 }
 
 /**
- * One numbered case study. Every project on /projects renders through this, so
+ * One numbered case study, shown in CaseStudyDialog. Every project renders through this, so
  * Elder-Care Link, Kepler, and Eclaire stay structurally consistent; sections
  * with no data for a given project are simply skipped and the numbering
  * closes up behind them.
@@ -82,9 +82,9 @@ export function CaseStudy({ project, eyebrow }: { project: Project; eyebrow: str
             )}
             <div>
               <div className="flex flex-wrap items-center gap-3">
-                <h1 className="font-heading text-3xl font-semibold sm:text-4xl">
+                <h2 className="font-heading text-3xl font-semibold sm:text-4xl">
                   {project.title}
-                </h1>
+                </h2>
                 <Badge>{project.status}</Badge>
               </div>
               <p className="mt-2 max-w-2xl text-muted-foreground">{project.tagline}</p>

@@ -33,9 +33,9 @@ export function Story() {
           <p className="eyebrow">
             About Me
           </p>
-          <h1 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">
+          <h2 className="mt-3 font-heading text-3xl font-semibold sm:text-4xl">
             Building software with a purpose, not just a portfolio.
-          </h1>
+          </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="mt-6 space-y-4 text-muted-foreground">
@@ -65,7 +65,7 @@ export function Story() {
 
         <ScrollReveal delay={0.2} className="mt-8 flex flex-wrap gap-4">
           <Button asChild>
-            <Link href="/contact">
+            <Link href="/#contact">
               Let&apos;s Talk <MessageCircle className="h-4 w-4" />
             </Link>
           </Button>

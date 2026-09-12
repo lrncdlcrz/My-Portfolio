@@ -73,7 +73,7 @@ export function Hero() {
             className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
           >
             <Button asChild>
-              <Link href="/projects">
+              <Link href="/#projects">
                 View Projects <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -83,7 +83,7 @@ export function Hero() {
               </a>
             </Button>
             <Button asChild variant="ghost">
-              <Link href="/contact">
+              <Link href="/#contact">
                 Let&apos;s Talk <MessageCircle className="h-4 w-4" />
               </Link>
             </Button>

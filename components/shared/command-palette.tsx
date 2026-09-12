@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import {
   Home,
   User,
+  Layers,
   FolderKanban,
   Award,
   FileText,
@@ -70,22 +71,25 @@ export function CommandPalette() {
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Navigate">
-          <CommandItem onSelect={() => go("/")}>
+          <CommandItem onSelect={() => go("/#home")}>
             <Home className="h-4 w-4" /> Home
           </CommandItem>
-          <CommandItem onSelect={() => go("/about")}>
-            <User className="h-4 w-4" /> About
-          </CommandItem>
-          <CommandItem onSelect={() => go("/projects")}>
+          <CommandItem onSelect={() => go("/#projects")}>
             <FolderKanban className="h-4 w-4" /> Projects
           </CommandItem>
-          <CommandItem onSelect={() => go("/certificates")}>
+          <CommandItem onSelect={() => go("/#about")}>
+            <User className="h-4 w-4" /> About
+          </CommandItem>
+          <CommandItem onSelect={() => go("/#tech-stack")}>
+            <Layers className="h-4 w-4" /> Tech Stack
+          </CommandItem>
+          <CommandItem onSelect={() => go("/#certificates")}>
             <Award className="h-4 w-4" /> Certificates
           </CommandItem>
-          <CommandItem onSelect={() => go("/resume")}>
+          <CommandItem onSelect={() => go("/#resume")}>
             <FileText className="h-4 w-4" /> Resume
           </CommandItem>
-          <CommandItem onSelect={() => go("/contact")}>
+          <CommandItem onSelect={() => go("/#contact")}>
             <Mail className="h-4 w-4" /> Contact
           </CommandItem>
         </CommandGroup>

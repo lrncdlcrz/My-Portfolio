@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink, Quote } from "lucide-react";
 import { ProjectShowcase, Testimonial } from "@/types";
 import { showcaseProjects, stackIconKeys } from "@/data/showcase";
 import { TechIcon } from "@/components/tech-stack/tech-icon";
 import { BrowserFrame } from "@/components/projects/browser-frame";
+import { CaseStudyDialog } from "@/components/projects/case-study-dialog";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { EASE_OUT } from "@/animations/variants";
 import { cn } from "@/lib/utils";
@@ -110,17 +110,19 @@ function ShowcasePanel({
         <StackPills stack={project.stack} />
 
         <div className="mt-7 flex flex-wrap items-center gap-5">
-          <Link
-            href={`/projects#${project.slug}`}
-            data-cursor-hover
-            className="group inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
-          >
-            View Case Study
-            <ArrowUpRight
-              aria-hidden
-              className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </Link>
+          <CaseStudyDialog slug={project.slug}>
+            <button
+              type="button"
+              data-cursor-hover
+              className="group inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
+            >
+              View Case Study
+              <ArrowUpRight
+                aria-hidden
+                className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
+            </button>
+          </CaseStudyDialog>
           {project.liveUrl && (
             <a
               href={project.liveUrl}
@@ -172,16 +174,23 @@ function ShowcasePanel({
     // viewport for its duration, so each project holds the screen while the
     // next scrolls up behind it.
     //
-    // Track height is deliberately modest: at 190vh each panel held for ~90vh
-    // of scrolling, which read as the page being stuck. 132vh gives roughly a
-    // third of a screen of hold per project - enough to register the pin,
-    // short enough that scrolling still feels like it is going somewhere.
+    // Hold length is deliberately modest: at 90vh of hold each panel read as
+    // the page being stuck. A third of a screen (32vh) is enough to register
+    // the pin, short enough that scrolling still feels like it is going
+    // somewhere.
     //
     // Pinning starts at `xl`, not `lg`: between 1024px and 1280px the
     // two-column split is too narrow and the copy wraps awkwardly, so those
     // widths get ordinary stacked sections instead.
-    <div className="xl:h-[132vh]">
-      <div className="xl:sticky xl:top-0 xl:flex xl:min-h-screen xl:items-center">
+    //
+    // Panels pin just under the header rather than centred, and the pinned
+    // box is only as tall as its content, with the hold supplied by the
+    // spacer below. The earlier full-screen box (inside a 132vh track) left
+    // a band of empty screen around every panel, which pushed the first
+    // project far below the section heading and "Other Projects" far below
+    // the last. Same 32vh hold, without the dead space.
+    <div>
+      <div className="xl:sticky xl:top-0 xl:pt-16">
         <div
           className={cn(
             "w-full border-t border-border py-16 first:border-t-0",
@@ -193,6 +202,10 @@ function ShowcasePanel({
           {content}
         </div>
       </div>
+      {/* The hold distance. Sticky positioning can only travel within its
+          parent's content box (padding would not count), so this has to be a
+          real element: the pinned panel slides down over it while held. */}
+      <div aria-hidden className="hidden xl:block xl:h-[32vh]" />
     </div>
   );
 }
@@ -201,16 +214,20 @@ export function ShowcaseSection() {
   const reducedMotion = useReducedMotion();
 
   return (
-    <section className="section py-16 lg:py-20" aria-labelledby="showcase-heading">
-      <p className="eyebrow">Showcase</p>
+    // Trimmed bottom padding: "Other Projects" follows directly and brings
+    // its own top padding, so the full amount doubled up into a wide gap.
+    <section className="section pb-12 pt-16 lg:pt-20" aria-labelledby="showcase-heading">
+      {/* The Projects section's heading, carried over from the old /projects
+          page so the section opens with one title rather than two. */}
+      <p className="eyebrow">Selected Work</p>
       <h2
         id="showcase-heading"
         className="mt-3 max-w-2xl font-heading text-3xl font-semibold text-foreground sm:text-4xl"
       >
-        Three builds, start to finish.
+        Projects built to solve real problems.
       </h2>
 
-      <div className="mt-12">
+      <div className="mt-12 xl:mt-4">
         {showcaseProjects.map((project, index) => (
           <div key={project.slug}>
             <ShowcasePanel

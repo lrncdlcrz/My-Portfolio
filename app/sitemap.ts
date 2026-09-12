@@ -2,17 +2,9 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/constants/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    "",
-    "/about",
-    "/tech-stack",
-    "/projects",
-    "/certificates",
-    "/resume",
-    "/contact",
-    "/privacy",
-    "/terms",
-  ];
+  // The old section routes now redirect into the one-page layout
+  // (next.config.ts), so only real, indexable pages are listed.
+  const routes = ["", "/privacy", "/terms"];
 
   const isLegal = (route: string) => route === "/privacy" || route === "/terms";
 

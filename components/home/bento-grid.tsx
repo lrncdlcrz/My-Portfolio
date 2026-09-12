@@ -9,6 +9,7 @@ import { AnalogClock, ManilaTimeLabel } from "@/components/home/analog-clock";
 import { InteractiveCube } from "@/components/home/interactive-cube";
 import { WireframeDottedGlobe } from "@/components/ui/wireframe-dotted-globe";
 import { BrowserFrame } from "@/components/projects/browser-frame";
+import { CaseStudyDialog } from "@/components/projects/case-study-dialog";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { siteConfig, socialLinks } from "@/constants/site";
 import { showcaseBySlug } from "@/data/showcase";
@@ -269,7 +270,7 @@ function AvailabilityCard() {
       </div>
 
       <Link
-        href="/contact"
+        href="/#contact"
         data-cursor-hover
         className="group/cta mt-auto flex w-full items-center justify-center gap-2 rounded-full border border-transparent bg-foreground px-5 py-3 font-heading text-xs font-semibold uppercase tracking-[0.14em] text-background transition-colors hover:border-foreground hover:bg-transparent hover:text-foreground"
       >
@@ -355,11 +356,12 @@ function SignatureProjectCard() {
 
   return (
     <motion.div variants={scaleIn} className={cn(CARD, "p-0")}>
-      <Link
-        href="/projects#elder-care-link"
-        data-cursor-hover
-        className="group flex h-full flex-col p-6 transition-colors hover:bg-muted/40"
-      >
+      {/* Was one big link. It now opens the case study popup, and since a
+          <button> may not contain the heading and screenshots below, the card
+          stays a plain container with a full-size button layered over it (the
+          stretched-link pattern). Hovering that button still hovers this
+          `group`, so every hover effect behaves as before. */}
+      <div className="group relative flex h-full flex-col p-6 transition-colors hover:bg-muted/40">
         <div className="text-right">
           <h3 className="font-heading text-2xl font-semibold leading-tight text-foreground">
             Building{" "}
@@ -402,7 +404,18 @@ function SignatureProjectCard() {
             />
           </div>
         </div>
-      </Link>
+
+        {/* Inset focus ring: the card clips overflow, so the sitewide outline
+            (drawn 2px outside) would be cut off on this full-size button. */}
+        <CaseStudyDialog slug="elder-care-link">
+          <button
+            type="button"
+            data-cursor-hover
+            aria-label={`View the ${project.name} case study`}
+            className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-offset-[-4px]"
+          />
+        </CaseStudyDialog>
+      </div>
     </motion.div>
   );
 }

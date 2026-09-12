@@ -7,20 +7,26 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Search, Menu, X } from "lucide-react";
 import { navLinks } from "@/constants/site";
 import { useScrollDirection } from "@/hooks/use-scroll-direction";
+import { useActiveSection } from "@/hooks/use-active-section";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+// Module-level so the array keeps one identity across renders; it is an effect
+// dependency inside useActiveSection.
+const SECTION_IDS = navLinks.map((link) => link.href.split("#")[1]);
 
 export function Navbar() {
   const pathname = usePathname();
   const { direction, scrolled } = useScrollDirection();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isActive = (href: string) => {
-    const base = href.split("#")[0];
-    if (base === "/") return pathname === "/";
-    return pathname.startsWith(base);
-  };
+  // Every page but "/" is a legal page with none of these sections, so the
+  // scroll-spy only runs on the one-page layout and nothing is marked active
+  // elsewhere.
+  const isHome = pathname === "/";
+  const activeSection = useActiveSection(SECTION_IDS, isHome);
+  const isActive = (href: string) => isHome && href === `/#${activeSection}`;
 
   return (
     <motion.header
@@ -48,8 +54,11 @@ export function Navbar() {
           </Link>
 
           {/* `whitespace-nowrap` is the important bit: without it "Tech Stack"
-              breaks onto two lines and pushes the whole bar taller. */}
-          <nav className="hidden items-center gap-0.5 md:flex lg:gap-1">
+              breaks onto two lines and pushes the whole bar taller.
+              Shown from `lg`, not `md`: the seven links need ~530px, so at
+              iPad-portrait widths (768-1023px) they pushed "Let's Talk" out
+              past the bar's right edge. Those widths use the menu toggle. */}
+          <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -86,13 +95,13 @@ export function Navbar() {
             </button>
             <ThemeToggle />
             <Button asChild size="sm" className="hidden md:inline-flex" magnetic>
-              <Link href="/contact">Let&apos;s Talk</Link>
+              <Link href="/#contact">Let&apos;s Talk</Link>
             </Button>
             <button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              className="glass flex h-11 w-11 items-center justify-center rounded-full md:hidden"
+              className="glass flex h-11 w-11 items-center justify-center rounded-full lg:hidden"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -106,7 +115,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0, height: "auto" }}
               exit={{ opacity: 0, y: -12, height: 0 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="glass mt-2 overflow-hidden rounded-2xl md:hidden"
+              className="glass mt-2 overflow-hidden rounded-2xl lg:hidden"
             >
               <div className="flex flex-col p-2">
                 {navLinks.map((link) => (
@@ -123,7 +132,7 @@ export function Navbar() {
                   </Link>
                 ))}
                 <Link
-                  href="/contact"
+                  href="/#contact"
                   onClick={() => setMobileOpen(false)}
                   className="mt-1 rounded-xl bg-mono-gradient px-4 py-3 text-center text-sm font-medium text-background"
                 >

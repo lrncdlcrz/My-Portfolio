@@ -26,9 +26,9 @@ export function CertificateGallery() {
         <p className="eyebrow">
           Verified Credentials
         </p>
-        <h1 className="mx-auto mt-3 max-w-2xl font-heading text-4xl font-semibold sm:text-5xl">
+        <h2 className="mx-auto mt-3 max-w-2xl font-heading text-4xl font-semibold sm:text-5xl">
           Certificates &amp; Badges
-        </h1>
+        </h2>
         <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
           Cloud, cybersecurity, and Linux credentials earned through AWS, IBM SkillsBuild,
           and Cisco Networking Academy.

@@ -30,7 +30,13 @@ interface CommandDialogProps {
 function CommandDialog({ open, onOpenChange, children }: CommandDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-xl overflow-hidden p-0 shadow-glow-lg">
+      {/* The shared close button (the content's direct child <button>) sits at
+          top-5/right-5, tuned for padded dialogs. Here it has to line up with
+          the 56px search row: top-3 centres it vertically in that row (it
+          previously hung ~8px low, over the divider), and right-4 mirrors the
+          search icon's inset on the left. The input wrapper gets matching
+          right padding so typed text stops short of the button. */}
+      <DialogContent className="max-w-xl overflow-hidden p-0 shadow-glow-lg [&>button]:right-4 [&>button]:top-3 [&_[cmdk-input-wrapper]]:pr-14">
         <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground">
           {children}
         </Command>

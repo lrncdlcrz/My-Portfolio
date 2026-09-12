@@ -113,9 +113,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        {/* Light by default. A visitor's own toggle choice is remembered by
+            next-themes (localStorage) and overrides this on later visits. */}
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
